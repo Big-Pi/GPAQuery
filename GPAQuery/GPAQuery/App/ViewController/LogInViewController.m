@@ -23,11 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.student=[[Student alloc]init];
-    if(!self.student.verifyImg){
-        [self.student getVerifyImageWithcompletionHandler:^(UIImage *verifyImg) {
-            self.checkCodeImg.image=verifyImg;
-        }];
-    }
+    [self.student getVerifyImageWithcompletionHandler:^(UIImage *verifyImg) {
+        self.checkCodeImg.image=verifyImg;
+    }];
 }
 
 #pragma mark - Private

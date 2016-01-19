@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import <AFNetworking.h>
-#import <Ono.h>
+#import "Ono.h"
 #import "Student.h"
 
 @interface ViewController ()<UIWebViewDelegate>
@@ -93,8 +93,8 @@
         if (error) {
             NSLog(@"Error: %@", error);
         } else {
-            NSStringEncoding gbkEncoding =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-            NSString *str=[[NSString alloc]initWithData:responseObject encoding:gbkEncoding];
+//            NSStringEncoding gbkEncoding =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+//            NSString *str=[[NSString alloc]initWithData:responseObject encoding:gbkEncoding];
 //            NSLog(@"%@\n%@",response,str);
 //            [self getContent:identifier];
 //            [self contentPage:identifier];
@@ -143,6 +143,7 @@
     
     NSMutableURLRequest *request=[[AFHTTPRequestSerializer serializer]requestWithMethod:@"GET" URLString:[requestUrl stringByReplacingPercentEscapesUsingEncoding:gbkEncoding] parameters:@{@"xh":@"12999029",@"xm":@"赵志明",@"gnmkdm":@"N121605"} error:&error];
     [request setAllHTTPHeaderFields:@{@"Referer":@"http://210.30.208.126/(so5f1n55ol0grk5524uatl45)/xs_main.aspx?xh=12999029"}];
+    
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {

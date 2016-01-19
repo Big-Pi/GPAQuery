@@ -46,10 +46,13 @@ completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError 
 -(void)get:(NSString*)urlStr
  parameter:(NSDictionary*)parameters
 completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler{
+
     
-    NSURL *URL = [NSURL URLWithString: [urlStr stringByReplacingPercentEscapesUsingEncoding:[NetUtil gbkEncoding]]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    
+    urlStr=[urlStr stringByAddingPercentEscapesUsingEncoding:[NetUtil gbkEncoding]];
+    NSMutableURLRequest *request=[[AFHTTPRequestSerializer serializer]requestWithMethod:@"GET" URLString:urlStr parameters:nil error:NULL];
+//    NSURL *URL = [NSURL URLWithString: [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
+    [request setAllHTTPHeaderFields:@{@"Referer":@"http://210.30.208.126/"}];
     NSURLSessionDataTask *dataTask = [self.manager dataTaskWithRequest:request completionHandler:completionHandler];
     [dataTask resume];
 }
@@ -65,6 +68,7 @@ completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError 
        body:(NSString*)bodyStr
 completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler{
     
+//    NSMutableURLRequest *request=[[AFHTTPRequestSerializer serializer]requestWithMethod:@"POST" URLString:urlStr parameters:nil error:NULL];
     NSURL *URL = [NSURL URLWithString:[urlStr stringByReplacingPercentEscapesUsingEncoding:[NetUtil gbkEncoding]]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     request.HTTPMethod=@"POST";
