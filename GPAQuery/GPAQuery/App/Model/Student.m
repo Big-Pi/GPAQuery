@@ -13,6 +13,7 @@
 #import <UIKit/UIImage.h>
 #import "CXHTMLDocument.h"
 #import "CXHTMLDocument+StringValueForXPath.h"
+#import "ScoreStats.h"
 
 #pragma mark - XPaths
 NSString *const kStudentIDPath=@"//*[@id='xh']";
@@ -95,7 +96,8 @@ NSString *const kLearningForm=@"//*[@id='lbxsgrxx_xxxs']";
         self.studentID=userName;
         self.studentName= [self parseStudentNameFromData:responseObject];
 //        [self getAllCourses];
-        [self getUnPassedCourses];
+//        [self getUnPassedCourses];
+        [self getScoreStats];
     }];
     
 }
@@ -135,6 +137,16 @@ NSString *const kLearningForm=@"//*[@id='lbxsgrxx_xxxs']";
         NSLog(@"%@",str);
         [Course coursesFromHtmlData:responseObject];
     }];
+}
+
+-(void)getScoreStats{
+        NSString *url= [SYNUAPI generateStudentCoursesUrl:self.userSessionID studentID:self.studentID studentName:self.studentName];
+    [self.net post:url bodyStr:kScoreStatsBody completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+//        NSString *str=[[NSString alloc]initWithData:responseObject encoding:[NetUtil gbkEncoding]];
+//        NSLog(@"%@",str);
+        [[ScoreStats alloc]initWithHtmlData:responseObject];
+    }];
+
 }
 
 /**

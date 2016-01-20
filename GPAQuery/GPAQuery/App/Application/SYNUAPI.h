@@ -10,6 +10,7 @@
 
 extern NSString *const kLogInBody;
 extern NSString *const kAllCoursesBody;
+extern NSString *const kScoreStatsBody;
 @interface SYNUAPI : NSObject
 
 +(NSString*)generateMainPageUrl;
