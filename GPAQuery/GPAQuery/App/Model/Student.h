@@ -11,7 +11,9 @@
 
 @interface Student : NSObject
 @property (strong,nonatomic,readonly) UIImage *verifyImg;//验证码图片
+@property (strong,nonatomic,readonly) UIImage *avatarImg;//头像图片
 @property (copy,nonatomic,readonly) NSString *userSessionID;
+
 //
 @property (copy,nonatomic,readonly) NSString *studentID;//学号
 @property (copy,nonatomic,readonly) NSString *studentName;//学生姓名
@@ -28,7 +30,6 @@
 @property (copy,nonatomic,readonly) NSString *sex;//性别
 @property (copy,nonatomic,readonly) NSString *enterSchoolTime;//入学时间
 
--(void)getVerifyImageWithcompletionHandler:(void (^)(UIImage *verifyImg))completionHandler;
+-(void)getVerifyImageWithCompletionHandler:(void (^)(UIImage *verifyImg))completionHandler;
 -(void)logInWithUserName:(NSString*)userName pwd:(NSString*)pwd checkCode:(NSString*)checkCode;
--(void)configWithHtmlData:(NSData*)data;
 @end

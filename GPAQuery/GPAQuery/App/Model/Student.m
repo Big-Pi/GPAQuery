@@ -9,27 +9,19 @@
 #import "Student.h"
 #import "NetUtil.h"
 #import "Course.h"
-#import <Ono.h>
+#import "SYNUAPI.h"
 #import <UIKit/UIImage.h>
-#import "TouchXML.h"
 #import "CXHTMLDocument.h"
 #import "CXHTMLDocument+StringValueForXPath.h"
 
-
-NSString *const kMainPageUrl=@"http://210.30.208.126/";
-NSString *const kCheckCodeUrl=@"http://210.30.208.126/(%@)/CheckCode.aspx";
-NSString *const kLogInUrl=@"http://210.30.208.126/(%@)/default2.aspx";
-NSString *const kLogInBodyUrl=@"__VIEWSTATE=dDwyODE2NTM0OTg7Oz7akNIwXHhlJks4341V36F4cAnbnQ==&txtUserName=%@&TextBox2=%@&txtSecretCode=%@&RadioButtonList1=学生&Button1=&lbLanguage=&hidPdrs=&hidsc=";
-NSString *const kManagementSystemMainPageUrl=@"http://210.30.208.126/(%@)/xs_main.aspx?xh=%@";
-NSString *const kStudentInformationUrl= @"http://210.30.208.126/(%@)/xsgrxx.aspx?xh=%@&xm=%@&gnmkdm=N121501";
-//
+#pragma mark - XPaths
 NSString *const kStudentIDPath=@"//*[@id='xh']";
+NSString *const kStudentNamePath=@"//*[@id='xhxm']";
 NSString *const kSexPath=@"//*[@id='lbl_xb']";
 NSString *const kEnterSchoolTimePath=@"//*[@id='lbl_rxrq']";
 NSString *const kNationalityPath=@"//*[@id='lbl_mz']";
 NSString *const kPoliticalStatusPath=@"//*[@id='lbl_zzmm']";
-//NSString *const kProvincePath=@"//*[@id='lbl_lys']";
-NSString *const kProvincePath=@"/html/body/form/div[2]/div/span/table[1]/tbody/tr[10]/td[2]/span";
+NSString *const kProvincePath=@"//*[@id='lbl_lys']";
 NSString *const kMajor=@"//*[@id='lbl_zymc']";
 NSString *const kClass=@"//*[@id='lbl_xzb']";
 NSString *const kEducation=@"//*[@id='lbl_CC']";
@@ -41,6 +33,8 @@ NSString *const kLearningForm=@"//*[@id='lbxsgrxx_xxxs']";
 @interface Student ()
 @property (strong,nonatomic) NetUtil *net;
 @property (strong,nonatomic,readwrite) UIImage *verifyImg;//验证码图片
+@property (strong,nonatomic,readwrite) UIImage *avatarImg;//头像图片
+
 @property (copy,nonatomic,readwrite) NSString *userSessionID;
 //
 @property (copy,nonatomic,readwrite) NSString *studentID;//学号
@@ -66,20 +60,23 @@ NSString *const kLearningForm=@"//*[@id='lbxsgrxx_xxxs']";
     self = [super init];
     if (self) {
         self.net=[NetUtil sharedNetUtil];
+        self.studentName=@"赵志明";
     }
     return self;
 }
+
 /**
  *  获取验证码图片
  *
  *  @param completionHandler
  */
--(void)getVerifyImageWithcompletionHandler:(void (^)(UIImage *verifyImg))completionHandler{
-    [self.net get:kMainPageUrl completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+-(void)getVerifyImageWithCompletionHandler:(void (^)(UIImage *verifyImg))completionHandler{
+    [self.net get:[SYNUAPI generateMainPageUrl] completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         self.userSessionID= [self parseUserIDFromResponse:response];
         [self verifyImgWithUserSessionID:self.userSessionID completionHandler:completionHandler];
     }];
 }
+
 /**
  *  登录
  *
@@ -88,44 +85,92 @@ NSString *const kLearningForm=@"//*[@id='lbxsgrxx_xxxs']";
  *  @param checkCode
  */
 -(void)logInWithUserName:(NSString*)userName pwd:(NSString*)pwd checkCode:(NSString*)checkCode{
-    NSString *logInUrl=[NSString stringWithFormat:kLogInUrl,self.userSessionID];
-    NSString *logInBody=[NSString stringWithFormat:kLogInBodyUrl,userName,pwd,checkCode];
-    [self.net post:logInUrl body:logInBody completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        self.studentID=userName;
-        NSString *str=[[NSString alloc]initWithData:responseObject encoding:[NetUtil gbkEncoding]];
+    NSString *logInUrl=[SYNUAPI generateLogInUrl:self.userSessionID];
+    
+    NSString *logInBody=[SYNUAPI generateLogInBody:userName pwd:pwd checkCode:checkCode];
+
+    [self.net post:logInUrl bodyStr:logInBody completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+//        NSString *str=[[NSString alloc]initWithData:responseObject encoding:[NetUtil gbkEncoding]];
 //        NSLog(@"%@",str);
-        
-        [self getStudenInformation];
+        self.studentID=userName;
+        self.studentName= [self parseStudentNameFromData:responseObject];
+//        [self getAllCourses];
+        [self getUnPassedCourses];
     }];
+    
 }
 
--(void)getManagementSystemMainPage{
-    NSString *url=[NSString stringWithFormat:kManagementSystemMainPageUrl,self.userSessionID,self.studentID];
-    [self.net get:url completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        NSString *str=[[NSString alloc]initWithData:responseObject encoding:[NetUtil gbkEncoding]];
-        NSLog(@"%@",str);
-    }];
-}
-
+/**
+ *  学生个人信息
+ */
 -(void)getStudenInformation{
-    self.studentName=@"赵志明";
-    NSString *url=[NSString stringWithFormat:kStudentInformationUrl,self.userSessionID,self.studentID,self.studentName];
+
+    NSString *url=[SYNUAPI generateStudentInformationUrl:self.userSessionID studentID:self.studentID studentName:self.studentName];
+    
     [self.net get:url completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
 //        NSString *str=[[NSString alloc]initWithData:responseObject encoding:[NetUtil gbkEncoding]];
 //        NSLog(@"%@",str);
-        [self configWithHtmlData:responseObject];
+        [self parseStudenInformationWithHtmlData:responseObject];
     }];
 }
 
+/**
+ *  未通过课程
+ */
+-(void)getUnPassedCourses{
+    NSString *url=[SYNUAPI generateStudentCoursesUrl:self.userSessionID studentID:self.studentID studentName:self.studentName];
+    [self.net get:url completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        [Course coursesFromHtmlData:responseObject];
+    }];
+}
+
+/**
+ *  所有课程列表
+ */
+-(void)getAllCourses{
+    NSString *url= [SYNUAPI generateStudentCoursesUrl:self.userSessionID studentID:self.studentID studentName:self.studentName];
+    
+    [self.net post:url bodyStr:kAllCoursesBody completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        NSString *str=[[NSString alloc]initWithData:responseObject encoding:[NetUtil gbkEncoding]];
+        NSLog(@"%@",str);
+        [Course coursesFromHtmlData:responseObject];
+    }];
+}
+
+/**
+ *  获取学生头像图片
+ *
+ *  @param completionHandler
+ */
+-(void)getAvatarImageWithCompletionHandler:(void (^)(UIImage *verifyImg))completionHandler{
+    [self.net get:[SYNUAPI generateStudentAvantarUrl:self.userSessionID studentID:self.studentID] completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        self.avatarImg=[UIImage imageWithData:responseObject];
+        completionHandler(self.avatarImg);
+    }];
+}
+
+
 #pragma mark - Private
+/**
+ *  根据session 获取验证码
+ *
+ *  @param sessionID
+ *  @param completionHandler
+ */
 -(void)verifyImgWithUserSessionID:(NSString*)sessionID completionHandler:(void (^)(UIImage *verifyImg))completionHandler{
-    NSString *checkCodeUrl=[NSString stringWithFormat:kCheckCodeUrl,self.userSessionID];
-    [self.net get:checkCodeUrl completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+
+    [self.net get:[SYNUAPI generateCheckCodeUrl:self.userSessionID] completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         self.verifyImg= [UIImage imageWithData:responseObject];
         completionHandler(self.verifyImg);
     }];
 }
 
+/**
+ *  取出sessionID
+ *
+ *  @param response
+ *
+ */
 -(NSString*)parseUserIDFromResponse:(NSURLResponse*)response{
     NSArray *pathComponents= response.URL.pathComponents;
     NSString *identifier=pathComponents[1];
@@ -134,11 +179,24 @@ NSString *const kLearningForm=@"//*[@id='lbxsgrxx_xxxs']";
     return identifier;
 }
 
+/**
+ *  取出学生姓名
+ *
+ *  @param data
+ *
+ */
+-(NSString*)parseStudentNameFromData:(NSData*)data{
+    CXHTMLDocument *html=[[CXHTMLDocument alloc]initWithData:data encoding:[NetUtil gbkEncoding] options:CXMLDocumentTidyHTML error:NULL];
+    NSString *studentName=[html stringValueForXPath:kStudentNamePath];
+    
+    studentName=[studentName stringByReplacingOccurrencesOfString:@"同学" withString:@"" options:0 range:NSMakeRange(0,studentName.length)];
+    return studentName;
+}
 
 #pragma mark - HTML Parse
--(void)configWithHtmlData:(NSData*)data{
+-(void)parseStudenInformationWithHtmlData:(NSData*)data{
     
-    CXHTMLDocument *html=[[CXHTMLDocument alloc]initWithData:data encoding:[NetUtil gbkEncoding] options:CXMLDocumentTidyHTML error:NULL];
+    CXHTMLDocument *html=[[CXHTMLDocument alloc]initWithData:data encoding:[NetUtil gbkEncoding] options:0 error:NULL];
     
     self.studentID =[html stringValueForXPath:kStudentIDPath];
     self.sex =[html stringValueForXPath:kSexPath];

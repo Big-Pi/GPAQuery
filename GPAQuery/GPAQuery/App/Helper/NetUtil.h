@@ -14,15 +14,19 @@
 //
 -(void)get:(NSString*)urlStr
 completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler;
--(void)post:(NSString*)urlStr
-       body:(NSString*)bodyStr
-completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler;
-//
+
 -(void)get:(NSString*)urlStr
  parameter:(NSDictionary*)parameters
 completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler;
+//
+-(void)post:(NSString*)urlStr
+completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler;
+
 -(void)post:(NSString*)urlStr
   parameter:(NSDictionary*)parameters
-       body:(NSString*)bodyStr
+completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler;
+
+-(void)post:(NSString*)urlStr
+    bodyStr:(NSString*)bodyStr
 completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler;
 @end

@@ -47,35 +47,47 @@ completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError 
  parameter:(NSDictionary*)parameters
 completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler{
 
-    
     urlStr=[urlStr stringByAddingPercentEscapesUsingEncoding:[NetUtil gbkEncoding]];
     NSMutableURLRequest *request=[[AFHTTPRequestSerializer serializer]requestWithMethod:@"GET" URLString:urlStr parameters:nil error:NULL];
+    
 //    NSURL *URL = [NSURL URLWithString: [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 //    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
+//    request.HTTPMethod=@"GET";
+    
     [request setAllHTTPHeaderFields:@{@"Referer":@"http://210.30.208.126/"}];
     NSURLSessionDataTask *dataTask = [self.manager dataTaskWithRequest:request completionHandler:completionHandler];
     [dataTask resume];
 }
 
 -(void)post:(NSString*)urlStr
-       body:(NSString*)bodyStr
 completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler{
-    [self post:urlStr parameter:nil body:bodyStr completionHandler:completionHandler];
+    [self post:urlStr parameter:nil completionHandler:completionHandler];
 }
 
 -(void)post:(NSString*)urlStr
   parameter:(NSDictionary*)parameters
-       body:(NSString*)bodyStr
+completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler{
+
+    NSMutableString *body=[NSMutableString string];
+    for (NSString *key in parameters) {
+        NSString *value= [parameters valueForKey:key];
+        [body appendFormat:@"%@=%@",key,value];
+    }
+    [self post:urlStr bodyStr:body completionHandler:completionHandler];
+}
+
+-(void)post:(NSString*)urlStr
+   bodyStr:(NSString*)bodyStr
 completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler{
     
-//    NSMutableURLRequest *request=[[AFHTTPRequestSerializer serializer]requestWithMethod:@"POST" URLString:urlStr parameters:nil error:NULL];
-    NSURL *URL = [NSURL URLWithString:[urlStr stringByReplacingPercentEscapesUsingEncoding:[NetUtil gbkEncoding]]];
+    NSURL *URL = [NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:[NetUtil gbkEncoding]]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     request.HTTPMethod=@"POST";
-    
-    bodyStr=[bodyStr stringByReplacingPercentEscapesUsingEncoding:[NetUtil gbkEncoding]];
-    request.HTTPBody=[bodyStr dataUsingEncoding:[NetUtil gbkEncoding]];
-    
+    if(bodyStr && bodyStr.length>0){
+//        bodyStr=[bodyStr stringByAddingPercentEscapesUsingEncoding:[NetUtil gbkEncoding]];
+        request.HTTPBody=[bodyStr dataUsingEncoding:[NetUtil gbkEncoding]];
+    }
+    [request setAllHTTPHeaderFields:@{@"Referer":@"http://210.30.208.126/"}];
     NSURLSessionDataTask *dataTask = [self.manager dataTaskWithRequest:request completionHandler:completionHandler];
     [dataTask resume];
 }

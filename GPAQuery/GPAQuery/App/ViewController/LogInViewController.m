@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.student=[[Student alloc]init];
-    [self.student getVerifyImageWithcompletionHandler:^(UIImage *verifyImg) {
+    [self.student getVerifyImageWithCompletionHandler:^(UIImage *verifyImg) {
         self.checkCodeImg.image=verifyImg;
     }];
 }

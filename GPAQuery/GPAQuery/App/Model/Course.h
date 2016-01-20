@@ -8,6 +8,27 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Course : NSObject
+typedef enum : NSUInteger {
+    SYNUCourseTypeHistory,
+    SYNUCourseTypeUnPass
+} SYNUCourseType;
 
+@interface Course : NSObject
+@property (copy,nonatomic,readonly) NSString *year;//学年
+@property (copy,nonatomic,readonly) NSString *term;//学期
+@property (copy,nonatomic,readonly) NSString *courseCode;//课程代码
+@property (copy,nonatomic,readonly) NSString *courseName;//课程名称
+@property (copy,nonatomic,readonly) NSString *courseType;//课程性质
+@property (copy,nonatomic,readonly) NSString *courseSubType;//课程归属
+@property (copy,nonatomic,readonly) NSString *credit;//学分
+@property (copy,nonatomic,readonly) NSString *GPA;//绩点
+@property (copy,nonatomic,readonly) NSString *score;//成绩
+@property (copy,nonatomic,readonly) NSString *tag;//辅修标记
+@property (copy,nonatomic,readonly) NSString *scoreMakeUp;//补考成绩
+@property (copy,nonatomic,readonly) NSString *scoreRetake;//重修成绩
+@property (copy,nonatomic,readonly) NSString *institute;//开课学院
+@property (copy,nonatomic,readonly) NSString *mark;//备注
+@property (copy,nonatomic,readonly) NSString *retakeTag;//重修标记
+@property (assign,nonatomic,readonly) SYNUCourseType SYNUCourseType;
++(NSArray *)coursesFromHtmlData:(NSData *)data;
 @end
