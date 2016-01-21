@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E1575F71C50ECE300784B30 /* StudentHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1575F31C50ECE300784B30 /* StudentHeader.m */; };
+		0E1575F81C50ECE300784B30 /* StudentHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E1575F41C50ECE300784B30 /* StudentHeader.xib */; };
+		0E1575F91C50ECE300784B30 /* StudentInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1575F61C50ECE300784B30 /* StudentInformationViewController.m */; };
+		0E1575FC1C50EE0700784B30 /* StudentInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1575FB1C50EE0700784B30 /* StudentInformationCell.m */; };
+		0E1575FF1C50F36A00784B30 /* NetUtil+SYNUNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1575FE1C50F36A00784B30 /* NetUtil+SYNUNetWorking.m */; };
+		0E1576021C5103EB00784B30 /* NSObject+Unicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1576011C5103EB00784B30 /* NSObject+Unicode.m */; };
+		0E1576081C51053900784B30 /* CoursesTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1576071C51053900784B30 /* CoursesTableController.m */; };
+		0E15760C1C51073A00784B30 /* CoursesChartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E15760B1C51073A00784B30 /* CoursesChartController.m */; };
+		0E1576101C51083F00784B30 /* ScoreStatsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E15760F1C51083F00784B30 /* ScoreStatsController.m */; };
 		0E531EA31C4FE01500B0E5B2 /* ScoreStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E531EA21C4FE01500B0E5B2 /* ScoreStats.m */; };
 		0E6886441C4A807E00455868 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6886411C4A807E00455868 /* AppDelegate.m */; };
 		0E6886461C4A807E00455868 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6886431C4A807E00455868 /* main.m */; };
@@ -39,6 +48,8 @@
 		0EC6DD491C4DF0EB00041CA4 /* CXMLUnsupportedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6DD381C4DF0EB00041CA4 /* CXMLUnsupportedNode.m */; };
 		0EC6DD4A1C4DF0EB00041CA4 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6DD3B1C4DF0EB00041CA4 /* CTidy.m */; };
 		0EC6DD4B1C4DF15200041CA4 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E872B8C1C4B471500CE2743 /* libxml2.tbd */; };
+		0ED66D341C5096A0002DD95F /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED66D331C5096A0002DD95F /* Helper.m */; };
+		0ED66D3A1C509A51002DD95F /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED66D391C509A51002DD95F /* BaseViewController.m */; };
 		B250618BDC8A6838FFEC0E45 /* libPods-GPAQuery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63871A35AC939E78969E748A /* libPods-GPAQuery.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +71,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E1575F21C50ECE300784B30 /* StudentHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentHeader.h; sourceTree = "<group>"; };
+		0E1575F31C50ECE300784B30 /* StudentHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentHeader.m; sourceTree = "<group>"; };
+		0E1575F41C50ECE300784B30 /* StudentHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentHeader.xib; sourceTree = "<group>"; };
+		0E1575F51C50ECE300784B30 /* StudentInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentInformationViewController.h; sourceTree = "<group>"; };
+		0E1575F61C50ECE300784B30 /* StudentInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentInformationViewController.m; sourceTree = "<group>"; };
+		0E1575FA1C50EE0700784B30 /* StudentInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentInformationCell.h; sourceTree = "<group>"; };
+		0E1575FB1C50EE0700784B30 /* StudentInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentInformationCell.m; sourceTree = "<group>"; };
+		0E1575FD1C50F36A00784B30 /* NetUtil+SYNUNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetUtil+SYNUNetWorking.h"; sourceTree = "<group>"; };
+		0E1575FE1C50F36A00784B30 /* NetUtil+SYNUNetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetUtil+SYNUNetWorking.m"; sourceTree = "<group>"; };
+		0E1576001C5103EB00784B30 /* NSObject+Unicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Unicode.h"; sourceTree = "<group>"; };
+		0E1576011C5103EB00784B30 /* NSObject+Unicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Unicode.m"; sourceTree = "<group>"; };
+		0E1576061C51053900784B30 /* CoursesTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursesTableController.h; sourceTree = "<group>"; };
+		0E1576071C51053900784B30 /* CoursesTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursesTableController.m; sourceTree = "<group>"; };
+		0E15760A1C51073A00784B30 /* CoursesChartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursesChartController.h; sourceTree = "<group>"; };
+		0E15760B1C51073A00784B30 /* CoursesChartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursesChartController.m; sourceTree = "<group>"; };
+		0E15760E1C51083F00784B30 /* ScoreStatsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreStatsController.h; sourceTree = "<group>"; };
+		0E15760F1C51083F00784B30 /* ScoreStatsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreStatsController.m; sourceTree = "<group>"; };
 		0E531EA11C4FE01500B0E5B2 /* ScoreStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreStats.h; sourceTree = "<group>"; };
 		0E531EA21C4FE01500B0E5B2 /* ScoreStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreStats.m; sourceTree = "<group>"; };
 		0E6886401C4A807E00455868 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -122,6 +150,10 @@
 		0EC6DD3A1C4DF0EB00041CA4 /* CTidy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTidy.h; sourceTree = "<group>"; };
 		0EC6DD3B1C4DF0EB00041CA4 /* CTidy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTidy.m; sourceTree = "<group>"; };
 		0EC6DD3C1C4DF0EB00041CA4 /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
+		0ED66D321C5096A0002DD95F /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		0ED66D331C5096A0002DD95F /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		0ED66D381C509A51002DD95F /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		0ED66D391C509A51002DD95F /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		37981587266623B878B167FE /* Pods-GPAQuery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPAQuery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPAQuery/Pods-GPAQuery.debug.xcconfig"; sourceTree = "<group>"; };
 		63871A35AC939E78969E748A /* libPods-GPAQuery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPAQuery.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBA7954FDECAAA9C48A191B4 /* Pods-GPAQuery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPAQuery.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPAQuery/Pods-GPAQuery.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +187,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E1575F01C50ECE300784B30 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				0E15760D1C51082A00784B30 /* ScoreStats */,
+				0E1576091C51072500784B30 /* CoursesChart */,
+				0E1576051C51051200784B30 /* Courses */,
+				0E1575F11C50ECE300784B30 /* StudentInformation */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		0E1575F11C50ECE300784B30 /* StudentInformation */ = {
+			isa = PBXGroup;
+			children = (
+				0E1575F21C50ECE300784B30 /* StudentHeader.h */,
+				0E1575F31C50ECE300784B30 /* StudentHeader.m */,
+				0E1575F41C50ECE300784B30 /* StudentHeader.xib */,
+				0E1575F51C50ECE300784B30 /* StudentInformationViewController.h */,
+				0E1575F61C50ECE300784B30 /* StudentInformationViewController.m */,
+				0E1575FA1C50EE0700784B30 /* StudentInformationCell.h */,
+				0E1575FB1C50EE0700784B30 /* StudentInformationCell.m */,
+			);
+			path = StudentInformation;
+			sourceTree = "<group>";
+		};
+		0E1576051C51051200784B30 /* Courses */ = {
+			isa = PBXGroup;
+			children = (
+				0E1576061C51053900784B30 /* CoursesTableController.h */,
+				0E1576071C51053900784B30 /* CoursesTableController.m */,
+			);
+			path = Courses;
+			sourceTree = "<group>";
+		};
+		0E1576091C51072500784B30 /* CoursesChart */ = {
+			isa = PBXGroup;
+			children = (
+				0E15760A1C51073A00784B30 /* CoursesChartController.h */,
+				0E15760B1C51073A00784B30 /* CoursesChartController.m */,
+			);
+			path = CoursesChart;
+			sourceTree = "<group>";
+		};
+		0E15760D1C51082A00784B30 /* ScoreStats */ = {
+			isa = PBXGroup;
+			children = (
+				0E15760E1C51083F00784B30 /* ScoreStatsController.h */,
+				0E15760F1C51083F00784B30 /* ScoreStatsController.m */,
+			);
+			path = ScoreStats;
+			sourceTree = "<group>";
+		};
 		0E68863F1C4A807E00455868 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +258,7 @@
 				0E68863F1C4A807E00455868 /* Application */,
 				0EACAB961C2DAA1800EF7261 /* Helper */,
 				0EACAB971C2DAA1800EF7261 /* Model */,
+				0E1575F01C50ECE300784B30 /* Module */,
 				0EACAB981C2DAA1800EF7261 /* ViewController */,
 			);
 			path = App;
@@ -182,6 +267,8 @@
 		0EACAB961C2DAA1800EF7261 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				0E1576001C5103EB00784B30 /* NSObject+Unicode.h */,
+				0E1576011C5103EB00784B30 /* NSObject+Unicode.m */,
 				0E93B0821C4E7505006C8484 /* NSObject+Description.h */,
 				0E93B0831C4E7505006C8484 /* NSObject+Description.m */,
 				0EC6DD1D1C4DF0EB00041CA4 /* TouchXML */,
@@ -189,6 +276,10 @@
 				0EACABA01C2DAAD700EF7261 /* NetUtil.m */,
 				0E93B07F1C4E737E006C8484 /* CXHTMLDocument+StringValueForXPath.h */,
 				0E93B0801C4E737E006C8484 /* CXHTMLDocument+StringValueForXPath.m */,
+				0ED66D321C5096A0002DD95F /* Helper.h */,
+				0ED66D331C5096A0002DD95F /* Helper.m */,
+				0E1575FD1C50F36A00784B30 /* NetUtil+SYNUNetWorking.h */,
+				0E1575FE1C50F36A00784B30 /* NetUtil+SYNUNetWorking.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -211,6 +302,8 @@
 			children = (
 				0E9C52C81C32D3C20026236E /* LogInViewController.h */,
 				0E9C52C91C32D3C20026236E /* LogInViewController.m */,
+				0ED66D381C509A51002DD95F /* BaseViewController.h */,
+				0ED66D391C509A51002DD95F /* BaseViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -459,6 +552,7 @@
 				0EB458971C2274F20040AE70 /* LaunchScreen.storyboard in Resources */,
 				0EB458941C2274F20040AE70 /* Assets.xcassets in Resources */,
 				0EB458921C2274F20040AE70 /* Main.storyboard in Resources */,
+				0E1575F81C50ECE300784B30 /* StudentHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,12 +628,16 @@
 				0EC6DD411C4DF0EB00041CA4 /* CXMLDocument_PrivateExtensions.m in Sources */,
 				0EC6DD471C4DF0EB00041CA4 /* CXMLNode_PrivateExtensions.m in Sources */,
 				0E531EA31C4FE01500B0E5B2 /* ScoreStats.m in Sources */,
+				0E1576081C51053900784B30 /* CoursesTableController.m in Sources */,
 				0EC6DD451C4DF0EB00041CA4 /* CXMLNamespaceNode.m in Sources */,
 				0EC6DD491C4DF0EB00041CA4 /* CXMLUnsupportedNode.m in Sources */,
 				0EC6DD421C4DF0EB00041CA4 /* CXMLElement.m in Sources */,
 				0EC6DD481C4DF0EB00041CA4 /* CXMLNode_XPathExtensions.m in Sources */,
 				0EC6DD3D1C4DF0EB00041CA4 /* CXMLDocument_CreationExtensions.m in Sources */,
+				0E1575FF1C50F36A00784B30 /* NetUtil+SYNUNetWorking.m in Sources */,
+				0E1576101C51083F00784B30 /* ScoreStatsController.m in Sources */,
 				0E93B0841C4E7505006C8484 /* NSObject+Description.m in Sources */,
+				0ED66D3A1C509A51002DD95F /* BaseViewController.m in Sources */,
 				0EACABA11C2DAAD700EF7261 /* NetUtil.m in Sources */,
 				0E93B0811C4E737E006C8484 /* CXHTMLDocument+StringValueForXPath.m in Sources */,
 				0EC6DD431C4DF0EB00041CA4 /* CXMLElement_CreationExtensions.m in Sources */,
@@ -550,11 +648,17 @@
 				0EACAB9B1C2DAA6600EF7261 /* Student.m in Sources */,
 				0EC6DD441C4DF0EB00041CA4 /* CXMLElement_ElementTreeExtensions.m in Sources */,
 				0E68864E1C4A868800455868 /* SYNUAPI.m in Sources */,
+				0E1575FC1C50EE0700784B30 /* StudentInformationCell.m in Sources */,
 				0EC6DD401C4DF0EB00041CA4 /* CXMLDocument.m in Sources */,
+				0E1575F91C50ECE300784B30 /* StudentInformationViewController.m in Sources */,
+				0E15760C1C51073A00784B30 /* CoursesChartController.m in Sources */,
 				0E6886461C4A807E00455868 /* main.m in Sources */,
+				0E1575F71C50ECE300784B30 /* StudentHeader.m in Sources */,
+				0E1576021C5103EB00784B30 /* NSObject+Unicode.m in Sources */,
 				0EC6DD3F1C4DF0EB00041CA4 /* CXHTMLDocument.m in Sources */,
 				0EACAB9E1C2DAA9700EF7261 /* Course.m in Sources */,
 				0EC6DD461C4DF0EB00041CA4 /* CXMLNode.m in Sources */,
+				0ED66D341C5096A0002DD95F /* Helper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

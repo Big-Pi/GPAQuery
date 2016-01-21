@@ -8,6 +8,9 @@
 
 #import "LogInViewController.h"
 #import "Student.h"
+#import "NetUtil+SYNUNetWorking.h"
+#import "StudentInformationViewController.h"
+#import "CoursesTableController.h"
 
 @interface LogInViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
@@ -16,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *logInBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *checkCodeImg;
 @property (strong,nonatomic) Student *student;
+@property (strong,nonatomic) NetUtil *netUtil;
 @end
 
 @implementation LogInViewController
@@ -23,17 +27,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.student=[[Student alloc]init];
-    [self.student getVerifyImageWithCompletionHandler:^(UIImage *verifyImg) {
+    self.netUtil=[NetUtil sharedNetUtil];
+    
+    [self.netUtil getVerifyImageWithStudent:self.student completionHandler:^(UIImage *verifyImg) {
         self.checkCodeImg.image=verifyImg;
     }];
 }
 
 #pragma mark - Private
 - (IBAction)logIn:(UIButton *)sender {
-    NSString *userName= self.userNameTextField.text;
-    NSString *pwd= self.pwdTextField.text;
-    NSString *checkCode= self.checkCodeTextField.text;
-    [self.student logInWithUserName:userName pwd:pwd checkCode:checkCode];
+    self.student.userName=self.userNameTextField.text;
+    self.student.pwd=self.pwdTextField.text;
+    self.student.checkCode=self.checkCodeTextField.text;
+    self.student.studentID=self.student.userName;
+    [self.netUtil logInWithStudent:self.student completionHandler:^{
+        NSLog(@"%@",@"登录成功");
+        [self performSegueWithIdentifier:@"courses" sender:self.student];
+    }];
+}
+
+#pragma mark - 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"studentInformation"]){
+        StudentInformationViewController *vc=segue.destinationViewController;
+        if([sender isKindOfClass:[Student class]]){
+            vc.student=sender;
+        }
+    }else if([segue.identifier isEqualToString:@"courses"]){
+        CoursesTableController *vc=segue.destinationViewController;
+        if([sender isKindOfClass:[Student class]]){
+            vc.student=sender;
+        }
+    }
 }
 
 @end

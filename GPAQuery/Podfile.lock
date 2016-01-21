@@ -14,11 +14,23 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
+  - PNChart (0.8.8):
+    - UICountingLabel (~> 1.2.0)
+  - PureLayout (3.0.1)
+  - UICountingLabel (1.2.0)
+  - VGParallaxHeader (0.0.6):
+    - PureLayout
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0.3)
+  - PNChart (~> 0.8.8)
+  - VGParallaxHeader
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  PNChart: 25f91e9c4688af49c3647489760624d037f5383f
+  PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
+  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
+  VGParallaxHeader: 1213aba58c9b0aea84f9e81ad526fde57aa4fe48
 
 COCOAPODS: 0.39.0

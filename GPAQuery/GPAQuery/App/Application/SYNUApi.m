@@ -48,7 +48,7 @@ NSString *const kStudentCourses=@"(%@)/xscjcx.aspx?xh=%@&xm=%@&gnmkdm=N121605";/
 }
 
 +(NSString*)generateStudentInformationUrl:(NSString*)sessionID studentID:(NSString*)studentID studentName:(NSString*)studentName{
-    return [NSString stringWithFormat:[kHost stringByAppendingPathComponent:kLogIn],sessionID,studentID,studentName];
+    return [NSString stringWithFormat:[kHost stringByAppendingPathComponent:kStudentInformation],sessionID,studentID,studentName];
 }
 
 +(NSString*)generateStudentAvantarUrl:(NSString*)sessionID studentID:(NSString*)studentID {

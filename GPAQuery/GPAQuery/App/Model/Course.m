@@ -8,7 +8,7 @@
 
 #import "Course.h"
 #import "CXHTMLDocument.h"
-#import "NetUtil.h"
+#import "Helper.h"
 
 #pragma mark - XPaths
 NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
@@ -51,7 +51,7 @@ NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
     
     NSMutableArray *array=[NSMutableArray array];
     NSError *error;
-    CXHTMLDocument *html=[[CXHTMLDocument alloc]initWithXHTMLData:data encoding:[NetUtil gbkEncoding] options:0 error:&error];
+    CXHTMLDocument *html=[[CXHTMLDocument alloc]initWithXHTMLData:data encoding:[Helper gbkEncoding] options:0 error:&error];
 
     NSArray *nodes= [html nodesForXPath:kCourseTableHeadPath error:NULL];
     CXMLNode *headNode=nodes[0];

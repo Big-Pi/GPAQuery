@@ -7,6 +7,7 @@
 //
 
 #import "NetUtil.h"
+#import "Helper.h"
 #import <AFNetworking.h>
 
 @interface NetUtil ()
@@ -47,7 +48,7 @@ completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError 
  parameter:(NSDictionary*)parameters
 completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler{
 
-    urlStr=[urlStr stringByAddingPercentEscapesUsingEncoding:[NetUtil gbkEncoding]];
+    urlStr=[urlStr stringByAddingPercentEscapesUsingEncoding:[Helper gbkEncoding]];
     NSMutableURLRequest *request=[[AFHTTPRequestSerializer serializer]requestWithMethod:@"GET" URLString:urlStr parameters:nil error:NULL];
     
 //    NSURL *URL = [NSURL URLWithString: [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -80,24 +81,16 @@ completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError 
    bodyStr:(NSString*)bodyStr
 completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler{
     
-    NSURL *URL = [NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:[NetUtil gbkEncoding]]];
+    NSURL *URL = [NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:[Helper gbkEncoding]]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     request.HTTPMethod=@"POST";
     if(bodyStr && bodyStr.length>0){
-//        bodyStr=[bodyStr stringByAddingPercentEscapesUsingEncoding:[NetUtil gbkEncoding]];
-        request.HTTPBody=[bodyStr dataUsingEncoding:[NetUtil gbkEncoding]];
+        request.HTTPBody=[bodyStr dataUsingEncoding:[Helper gbkEncoding]];
     }
     [request setAllHTTPHeaderFields:@{@"Referer":@"http://210.30.208.126/"}];
     NSURLSessionDataTask *dataTask = [self.manager dataTaskWithRequest:request completionHandler:completionHandler];
     [dataTask resume];
 }
 
-#pragma mark - Private
-+(NSStringEncoding)gbkEncoding{
-    static NSStringEncoding gbkEncoding;
-    if(!gbkEncoding){
-        gbkEncoding=CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-    }
-    return gbkEncoding;
-}
+
 @end

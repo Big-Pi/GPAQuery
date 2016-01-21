@@ -8,7 +8,7 @@
 
 #import "ScoreStats.h"
 #import "CXHTMLDocument.h"
-#import "NetUtil.h"
+#import "Helper.h"
 
 NSString *const kStatsParentPath=@"//*[@id='xftj']";
 
@@ -37,7 +37,7 @@ NSString *const kStatsParentPath=@"//*[@id='xftj']";
 }
 
 -(void)parseScoreStatsFromHtmlData:(NSData*)data{
-    CXHTMLDocument *html=[[CXHTMLDocument alloc]initWithXHTMLData:data encoding:[NetUtil gbkEncoding] options:0 error:NULL];
+    CXHTMLDocument *html=[[CXHTMLDocument alloc]initWithXHTMLData:data encoding:[Helper gbkEncoding] options:0 error:NULL];
     CXMLNode *parentNode= [html nodesForXPath:kStatsParentPath error:NULL][0];
     CXMLNode *statsNode= parentNode.children[0];
     NSString *stats=statsNode.stringValue;

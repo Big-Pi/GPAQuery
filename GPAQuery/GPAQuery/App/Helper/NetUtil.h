@@ -10,7 +10,7 @@
 
 @interface NetUtil : NSObject
 +(instancetype)sharedNetUtil;
-+(NSStringEncoding)gbkEncoding;
+
 //
 -(void)get:(NSString*)urlStr
 completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler;
