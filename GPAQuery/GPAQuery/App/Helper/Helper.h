@@ -10,4 +10,5 @@
 
 @interface Helper : NSObject
 +(NSStringEncoding)gbkEncoding;
++(NSString*)removeChinese:(NSString*)str;
 @end

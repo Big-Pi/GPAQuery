@@ -1,0 +1,6 @@
+framework module Pods_GPAQuery {
+  umbrella header "Pods-GPAQuery-umbrella.h"
+
+  export *
+  module * { export * }
+}

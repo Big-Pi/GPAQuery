@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Student;
 @interface StudentHeader : UIView
-
+-(instancetype)initWithStudent:(Student*)student;
 @end

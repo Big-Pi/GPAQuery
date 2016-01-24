@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Student;
-@interface ScoreStatsController : UIViewController
-@property (strong,nonatomic) Student *student;
+#import "BaseViewController.h"
+
+@interface ScoreStatsController : BaseViewController
 @end

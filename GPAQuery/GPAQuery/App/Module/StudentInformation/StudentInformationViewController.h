@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseViewController.h"
 @import UIKit;
-@class Student;
 
-@interface StudentInformationViewController :UITableViewController
-@property (strong,nonatomic) Student *student;
+@interface StudentInformationViewController :BaseViewController
 @end

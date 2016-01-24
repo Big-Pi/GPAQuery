@@ -10,21 +10,15 @@
 
 
 @interface StudentInformationCell ()
-@property (weak, nonatomic) IBOutlet UILabel *key;
-@property (weak, nonatomic) IBOutlet UILabel *value;
+
 
 @end
 
 @implementation StudentInformationCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)configCellWithDataDict:(NSDictionary*)dict{
+    self.key.text=dict.allKeys[0];
+    self.value.text=dict.allValues[0];
 }
 
 @end

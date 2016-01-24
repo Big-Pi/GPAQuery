@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Student;
-@interface CoursesChartController : UIViewController
-@property (strong,nonatomic) Student *student;
+#import "BaseViewController.h"
+
+@interface CoursesChartController : BaseViewController
+
 @end

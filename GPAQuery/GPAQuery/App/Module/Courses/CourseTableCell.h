@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Course;
 @interface CourseTableCell : UITableViewCell
-
+-(void)configWithCourse:(Course*)course;
 @end

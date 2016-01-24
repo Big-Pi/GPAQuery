@@ -110,7 +110,7 @@
  *
  *  @param completionHandler
  */
--(void)getAvatarImage:(Student*)student completionHandler:(void (^)(UIImage *verifyImg))completionHandler{
+-(void)getAvatarImage:(Student*)student completionHandler:(void (^)(UIImage *avatarImg))completionHandler{
     [self get:[SYNUAPI generateStudentAvantarUrl:student.userSessionID studentID:student.studentID] completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         student.avatarImg=[UIImage imageWithData:responseObject];
         completionHandler(student.avatarImg);

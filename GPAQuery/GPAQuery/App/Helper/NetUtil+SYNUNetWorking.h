@@ -21,5 +21,5 @@
 
 -(void)getScoreStats:(Student*)student completionHandler:(void (^)())completionHandler;
 
--(void)getAvatarImage:(Student*)student completionHandler:(void (^)(UIImage *verifyImg))completionHandler;
+-(void)getAvatarImage:(Student*)student completionHandler:(void (^)(UIImage *avatarImg))completionHandler;
 @end

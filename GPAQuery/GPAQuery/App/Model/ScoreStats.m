@@ -21,8 +21,7 @@ NSString *const kStatsParentPath=@"//*[@id='xftj']";
 @end
 
 @implementation ScoreStats
-#pragma mark - Private
-
+#pragma mark - Public
 - (instancetype)initWithHtmlData:(NSData*)data
 {
     self = [super init];
@@ -32,10 +31,25 @@ NSString *const kStatsParentPath=@"//*[@id='xftj']";
     return self;
 }
 
--(void)setCreditUnPass:(NSString *)creditUnPass{
-    _creditUnPass=[creditUnPass stringByReplacingOccurrencesOfString:@"。" withString:@""];
+#pragma mark - Getter Setter
+-(void)setCreditGain:(NSString *)creditGain{
+    _creditGain=[Helper removeChinese:creditGain];
 }
 
+-(void)setCreditRetake:(NSString *)creditRetake{
+    _creditRetake=[Helper removeChinese:creditRetake];
+}
+
+-(void)setCreditUnPass:(NSString *)creditUnPass{
+    _creditUnPass=[Helper removeChinese:creditUnPass];
+    _creditUnPass=[_creditUnPass stringByReplacingOccurrencesOfString:@"。" withString:@""];
+}
+
+-(void)setCreditSelected:(NSString *)creditSelected{
+    _creditSelected=[Helper removeChinese:creditSelected];
+}
+
+#pragma mark - Private
 -(void)parseScoreStatsFromHtmlData:(NSData*)data{
     CXHTMLDocument *html=[[CXHTMLDocument alloc]initWithXHTMLData:data encoding:[Helper gbkEncoding] options:0 error:NULL];
     CXMLNode *parentNode= [html nodesForXPath:kStatsParentPath error:NULL][0];

@@ -9,5 +9,4 @@
 #ifndef GPAQuery_Swift_h
 #define GPAQuery_Swift_h
 
-
 #endif /* GPAQuery_Swift_h */
