@@ -15,4 +15,10 @@
     }
     return _netUtil;
 }
+-(Student *)student{
+    if(!_student){
+        _student=[[Student alloc]init];
+    }
+    return _student;
+}
 @end

@@ -17,9 +17,24 @@
 @implementation CoursesTableController
 -(void)viewDidLoad{
     [super viewDidLoad];
+    NSLog(@"%@",@"表格 Load");
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableHeaderCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
+    //
+    if(self.student.historyCourses && self.student.historyCourses.count>0){
+        self.historyCourses=self.student.historyCourses;
+        [self.tableView reloadData];
+    }else{
+        [self reloadData:self.student];
+    }
+    
+}
+
+#pragma mark - Private
+-(void)reloadData:(Student*)student{
+    [SpinnerHud showInView:self.view];
     [self.netUtil getAllCourses:self.student completionHandler:^{
+        [SpinnerHud hide];
         self.historyCourses=self.student.historyCourses;
         [self.tableView reloadData];
     }];

@@ -17,20 +17,14 @@
 @implementation NetUtil (SYNUNetWorking)
 
 /**
- *  获取验证码图片
+ *  获取SessionID
  *
  *  @param completionHandler
  */
--(void)getVerifyImageWithStudent:(Student*)student completionHandler:(void (^)(UIImage *verifyImg))completionHandler{
+-(void)getSessionIDWithStudent:(Student*)student completionHandler:(void (^)())completionHandler{
     [self get:[SYNUAPI generateMainPageUrl] completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        
         student.userSessionID= [self parseUserIDFromResponse:response];
-        
-        [self verifyImgWithStudent:student completionHandler:^(UIImage *verifyImg) {
-            student.verifyImg=verifyImg;
-            completionHandler(verifyImg);
-        }];
-        
+        completionHandler();
     }];
 }
 

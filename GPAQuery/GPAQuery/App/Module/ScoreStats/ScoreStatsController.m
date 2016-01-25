@@ -13,8 +13,6 @@
 
 @interface ScoreStatsController ()
 @property (weak, nonatomic) IBOutlet PieChartView *pieChart;
-
-
 @end
 
 @implementation ScoreStatsController
@@ -25,14 +23,24 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+     NSLog(@"%@",@"学生统计信息 Load");
     self.pieChart.noDataText=@"正在努力加载解析~";
     self.pieChart.descriptionText=@"学分获得情况";
-    [self.netUtil getScoreStats:self.student completionHandler:^{
+    if(self.student.scoreStats){
         [self strokeChartWIthScoreStats:self.student.scoreStats];
-    }];
+    }else{
+        [self reloadData:self.student];
+    }
 }
 
 #pragma mark - Private
+-(void)reloadData:(Student*)student{
+    [SpinnerHud showInView:self.view];
+    [self.netUtil getScoreStats:self.student completionHandler:^{
+        [SpinnerHud hide];
+        [self strokeChartWIthScoreStats:self.student.scoreStats];
+    }];
+}
 
 #pragma mark - ios-Charts
 -(void)strokeChartWIthScoreStats:(ScoreStats*)scoreStats{

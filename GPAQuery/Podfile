@@ -6,11 +6,12 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'GPAQuery' do
-pod 'Charts', '~> 2.1.6'
+pod 'Charts'
 pod 'VGParallaxHeader'
-pod 'MBProgressHUD', '~> 0.9.2'
-pod 'AFNetworking', '~> 3.0.3'
+pod 'MBProgressHUD'
+pod 'AFNetworking'
 pod 'DGActivityIndicatorView'
+pod 'JXLS'
 end
 
 target 'GPAQueryTests' do

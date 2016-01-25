@@ -75,6 +75,26 @@ NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
     return self;
 }
 
+
+-(void)setScore:(NSString *)score{
+    if([Helper isChinese:score]){
+        if ([score containsString:@"不"]) {
+            score=[NSString stringWithFormat:@"%d",0];
+        }else if([score containsString:@"及格"]){
+            score=[NSString stringWithFormat:@"%d",60];
+        }else if([score containsString:@"合格"]){
+            score=[NSString stringWithFormat:@"%d",60];
+        }else if ([score containsString:@"中等"]){
+            score=[NSString stringWithFormat:@"%d",70];
+        }else if ([score containsString:@"良好"]){
+            score=[NSString stringWithFormat:@"%d",80];
+        }else if ([score containsString:@"优秀"]){
+            score=[NSString stringWithFormat:@"%d",90];
+        }
+    }
+    _score=score;
+}
+
 -(void)parseCourseFromNode:(CXMLNode*)node{
     NSArray *children=node.children;
     if(children.count==16){

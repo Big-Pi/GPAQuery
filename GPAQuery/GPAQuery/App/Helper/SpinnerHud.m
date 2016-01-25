@@ -19,11 +19,15 @@ static MBProgressHUD *hud;
 }
 
 +(void)show{
-    UIWindow *window=[[UIApplication sharedApplication].windows lastObject];
-    hud= [[MBProgressHUD alloc]initWithWindow:window];
+    UIView *v=[[UIApplication sharedApplication].windows lastObject];
+    [self showInView:v];
+}
+
++(void)showInView:(UIView*)v{
+    hud= [[MBProgressHUD alloc]initWithView:v];
     hud.labelText=@"正在努力加载中 ~ ";
     hud.mode=MBProgressHUDModeCustomView;
-    [window addSubview:hud];
+    [v addSubview:hud];
     hud.removeFromSuperViewOnHide=YES;
 //    hud.dimBackground=YES;
     //

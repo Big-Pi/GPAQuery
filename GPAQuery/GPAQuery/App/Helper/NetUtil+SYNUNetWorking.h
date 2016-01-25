@@ -11,7 +11,7 @@
 @class Student;
 
 @interface NetUtil (SYNUNetWorking)
--(void)getVerifyImageWithStudent:(Student*)student completionHandler:(void (^)(UIImage *verifyImg))completionHandler;
+-(void)getSessionIDWithStudent:(Student*)student completionHandler:(void (^)())completionHandler;
 -(void)logInWithStudent:(Student*)student completionHandler:(void (^)(BOOL success))completionHandler;
 -(void)getStudentInformation:(Student*)student completionHandler:(void (^)())completionHandler;
 

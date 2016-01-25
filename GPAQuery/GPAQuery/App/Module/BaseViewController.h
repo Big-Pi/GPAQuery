@@ -10,6 +10,8 @@
 #import "NetUtil+SYNUNetWorking.h"
 #import "Student.h"
 #import "CXHTMLDocument+StringValueForXPath.h"
+#import "SpinnerHud.h"
+#import "MBProgressHUD+TextMsg.h"
 
 @interface BaseViewController : UIViewController
 @property (strong,nonatomic) Student *student;

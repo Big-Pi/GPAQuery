@@ -13,6 +13,8 @@
 
 +(void)show;
 
++(void)showInView:(UIView*)v;
+
 +(void)hide;
 
 +(void)hideAfter:(NSTimeInterval)second;

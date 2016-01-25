@@ -19,15 +19,30 @@
 @implementation StudentInformationViewController
 -(void)viewDidLoad{
     [super viewDidLoad];
+    NSLog(@"%@",@"学生信息 Load");
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"StudentInformationCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+    
     UIView *header= [[StudentHeader alloc]initWithStudent:self.student];
     [self.tableView setParallaxHeaderView:header mode:VGParallaxHeaderModeFill height:200];
+    
+    if(self.student.grade && self.student.major){
+        self.dataArray=[self buildDataFromStudent:self.student];
+        [self.tableView reloadData];
+    }else{
+        [self reloadData:self.student];
+    }
+    
+}
+
+#pragma mark - Private
+-(void)reloadData:(Student*)student{
+    [SpinnerHud showInView:self.view];
     [self.netUtil getStudentInformation:self.student completionHandler:^{
-//        NSLog(@"%@",self.student);
+        [SpinnerHud hide];
         self.dataArray=[self buildDataFromStudent:self.student];
         [self.tableView reloadData];
     }];
-    
 }
 
 #pragma mark - TableView
