@@ -90,6 +90,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-GPAQuery/JXLS.framework"
   install_framework "Pods-GPAQuery/MBProgressHUD.framework"
   install_framework "Pods-GPAQuery/PureLayout.framework"
+  install_framework "Pods-GPAQuery/REMenu.framework"
   install_framework "Pods-GPAQuery/VGParallaxHeader.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -99,5 +100,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-GPAQuery/JXLS.framework"
   install_framework "Pods-GPAQuery/MBProgressHUD.framework"
   install_framework "Pods-GPAQuery/PureLayout.framework"
+  install_framework "Pods-GPAQuery/REMenu.framework"
   install_framework "Pods-GPAQuery/VGParallaxHeader.framework"
 fi

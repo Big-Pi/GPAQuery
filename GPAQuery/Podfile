@@ -12,6 +12,7 @@ pod 'MBProgressHUD'
 pod 'AFNetworking'
 pod 'DGActivityIndicatorView'
 pod 'JXLS'
+pod 'REMenu'
 end
 
 target 'GPAQueryTests' do
