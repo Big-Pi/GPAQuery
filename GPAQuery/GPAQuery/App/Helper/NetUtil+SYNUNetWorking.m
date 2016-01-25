@@ -41,17 +41,28 @@
  *  @param pwd
  *  @param checkCode
  */
--(void)logInWithStudent:(Student*)student completionHandler:(void (^)())completionHandler{
+-(void)logInWithStudent:(Student*)student completionHandler:(void (^)(BOOL success))completionHandler{
     NSString *logInUrl=[SYNUAPI generateLogInUrl:student.userSessionID];
     
     NSString *logInBody=[SYNUAPI generateLogInBody:student.userName pwd:student.pwd checkCode:student.checkCode];
     
     [self post:logInUrl bodyStr:logInBody completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-//        NSString *str=[[NSString alloc]initWithData:responseObject encoding:[Helper gbkEncoding]];
-//        NSLog(@"%@",str);
-        student.studentName= [self parseStudentNameFromData:responseObject];
-        completionHandler();
+        BOOL success=[self validateLogInSuccess:responseObject];
+        if(success){
+            student.studentName= [self parseStudentNameFromData:responseObject];
+        }
+        completionHandler(success);
     }];
+}
+
+-(BOOL)validateLogInSuccess:(NSData*)responseData{
+    NSString *str=[[NSString alloc]initWithData:responseData encoding:[Helper gbkEncoding]];
+    NSLog(@"%@",str);
+    if([str containsString:@"验证码不正确"]){
+        return NO;
+    }else{
+       return YES;
+    }
 }
 
 /**

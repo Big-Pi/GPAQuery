@@ -20,4 +20,6 @@
 +(NSString*)removeChinese:(NSString*)str{
     return [str stringByReplacingOccurrencesOfString:@"[\u4e00-\u9fa5]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, str.length)];
 }
+
+
 @end

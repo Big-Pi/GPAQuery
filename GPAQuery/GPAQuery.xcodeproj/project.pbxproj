@@ -28,6 +28,9 @@
 		0E6886461C4A807E00455868 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6886431C4A807E00455868 /* main.m */; };
 		0E6886491C4A835F00455868 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E6886481C4A835F00455868 /* Info.plist */; };
 		0E68864E1C4A868800455868 /* SYNUAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E68864D1C4A868800455868 /* SYNUAPI.m */; };
+		0E822FD71C55F6D900B9AF76 /* SpinnerHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E822FD61C55F6D900B9AF76 /* SpinnerHud.m */; };
+		0E822FDA1C56076000B9AF76 /* MBProgressHUD+TextMsg.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E822FD91C56076000B9AF76 /* MBProgressHUD+TextMsg.m */; };
+		0E822FDD1C560ABB00B9AF76 /* UIImageView+PlaceHolderSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E822FDC1C560ABB00B9AF76 /* UIImageView+PlaceHolderSpinner.m */; };
 		0E93B0811C4E737E006C8484 /* CXHTMLDocument+StringValueForXPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E93B0801C4E737E006C8484 /* CXHTMLDocument+StringValueForXPath.m */; };
 		0E93B0841C4E7505006C8484 /* NSObject+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E93B0831C4E7505006C8484 /* NSObject+Description.m */; };
 		0EACAB9B1C2DAA6600EF7261 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EACAB9A1C2DAA6600EF7261 /* Student.m */; };
@@ -111,6 +114,12 @@
 		0E6886481C4A835F00455868 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E68864C1C4A868800455868 /* SYNUAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYNUAPI.h; sourceTree = "<group>"; };
 		0E68864D1C4A868800455868 /* SYNUAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYNUAPI.m; sourceTree = "<group>"; };
+		0E822FD51C55F6D900B9AF76 /* SpinnerHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinnerHud.h; sourceTree = "<group>"; };
+		0E822FD61C55F6D900B9AF76 /* SpinnerHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinnerHud.m; sourceTree = "<group>"; };
+		0E822FD81C56076000B9AF76 /* MBProgressHUD+TextMsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+TextMsg.h"; sourceTree = "<group>"; };
+		0E822FD91C56076000B9AF76 /* MBProgressHUD+TextMsg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+TextMsg.m"; sourceTree = "<group>"; };
+		0E822FDB1C560ABB00B9AF76 /* UIImageView+PlaceHolderSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+PlaceHolderSpinner.h"; sourceTree = "<group>"; };
+		0E822FDC1C560ABB00B9AF76 /* UIImageView+PlaceHolderSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+PlaceHolderSpinner.m"; sourceTree = "<group>"; };
 		0E872B861C4B3DC900CE2743 /* libiconv.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.tbd; path = usr/lib/libiconv.2.tbd; sourceTree = SDKROOT; };
 		0E872B8C1C4B471500CE2743 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		0E872B8E1C4B472D00CE2743 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
@@ -261,6 +270,8 @@
 			children = (
 				0E1576121C512AF600784B30 /* LogInViewController.h */,
 				0E1576131C512AF600784B30 /* LogInViewController.m */,
+				0E822FDB1C560ABB00B9AF76 /* UIImageView+PlaceHolderSpinner.h */,
+				0E822FDC1C560ABB00B9AF76 /* UIImageView+PlaceHolderSpinner.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -308,6 +319,10 @@
 				0ED66D331C5096A0002DD95F /* Helper.m */,
 				0E1575FD1C50F36A00784B30 /* NetUtil+SYNUNetWorking.h */,
 				0E1575FE1C50F36A00784B30 /* NetUtil+SYNUNetWorking.m */,
+				0E822FD51C55F6D900B9AF76 /* SpinnerHud.h */,
+				0E822FD61C55F6D900B9AF76 /* SpinnerHud.m */,
+				0E822FD81C56076000B9AF76 /* MBProgressHUD+TextMsg.h */,
+				0E822FD91C56076000B9AF76 /* MBProgressHUD+TextMsg.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -657,10 +672,12 @@
 				0EC6DD3D1C4DF0EB00041CA4 /* CXMLDocument_CreationExtensions.m in Sources */,
 				0E1575FF1C50F36A00784B30 /* NetUtil+SYNUNetWorking.m in Sources */,
 				0E1576101C51083F00784B30 /* ScoreStatsController.m in Sources */,
+				0E822FDD1C560ABB00B9AF76 /* UIImageView+PlaceHolderSpinner.m in Sources */,
 				0E93B0841C4E7505006C8484 /* NSObject+Description.m in Sources */,
 				0EACABA11C2DAAD700EF7261 /* NetUtil.m in Sources */,
 				0E93B0811C4E737E006C8484 /* CXHTMLDocument+StringValueForXPath.m in Sources */,
 				0E1576201C513C1700784B30 /* CourseTableCell.m in Sources */,
+				0E822FDA1C56076000B9AF76 /* MBProgressHUD+TextMsg.m in Sources */,
 				0EC6DD431C4DF0EB00041CA4 /* CXMLElement_CreationExtensions.m in Sources */,
 				0E6886441C4A807E00455868 /* AppDelegate.m in Sources */,
 				0EC6DD3E1C4DF0EB00041CA4 /* CXMLNode_CreationExtensions.m in Sources */,
@@ -671,6 +688,7 @@
 				0E1575FC1C50EE0700784B30 /* StudentInformationCell.m in Sources */,
 				0E1576251C513D0E00784B30 /* CourseTableHeaderCell.m in Sources */,
 				0EC6DD401C4DF0EB00041CA4 /* CXMLDocument.m in Sources */,
+				0E822FD71C55F6D900B9AF76 /* SpinnerHud.m in Sources */,
 				0E1575F91C50ECE300784B30 /* StudentInformationViewController.m in Sources */,
 				0E15760C1C51073A00784B30 /* CoursesChartController.m in Sources */,
 				0E6886461C4A807E00455868 /* main.m in Sources */,

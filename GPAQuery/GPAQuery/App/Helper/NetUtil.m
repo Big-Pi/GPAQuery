@@ -21,6 +21,8 @@
     self = [super init];
     if (self) {
         self.configuration=[NSURLSessionConfiguration defaultSessionConfiguration];
+        self.configuration.timeoutIntervalForRequest=20;
+        self.configuration.timeoutIntervalForResource=20;
         self.manager=[[AFURLSessionManager alloc]initWithSessionConfiguration:self.configuration];
         self.manager.responseSerializer=[AFHTTPResponseSerializer serializer];
     }
@@ -54,7 +56,6 @@ completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError 
 //    NSURL *URL = [NSURL URLWithString: [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 //    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
 //    request.HTTPMethod=@"GET";
-    
     [request setAllHTTPHeaderFields:@{@"Referer":@"http://210.30.208.126/"}];
     NSURLSessionDataTask *dataTask = [self.manager dataTaskWithRequest:request completionHandler:completionHandler];
     [dataTask resume];

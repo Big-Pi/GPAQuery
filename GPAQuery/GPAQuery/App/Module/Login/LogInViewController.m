@@ -13,6 +13,10 @@
 #import "CoursesTableController.h"
 #import "ScoreStatsController.h"
 #import "CoursesChartController.h"
+#import "SpinnerHud.h"
+#import "MBProgressHUD+TextMsg.h"
+#import "UIImageView+PlaceHolderSpinner.h"
+
 
 @interface LogInViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
@@ -31,7 +35,9 @@
     self.student=[[Student alloc]init];
     self.netUtil=[NetUtil sharedNetUtil];
     
+    [self.checkCodeImg showPlaceHolder];
     [self.netUtil getVerifyImageWithStudent:self.student completionHandler:^(UIImage *verifyImg) {
+        [self.checkCodeImg hidePlaceHolder];
         self.checkCodeImg.image=verifyImg;
     }];
 }
@@ -42,11 +48,27 @@
     self.student.pwd=self.pwdTextField.text;
     self.student.checkCode=self.checkCodeTextField.text;
     self.student.studentID=self.student.userName;
-    [self.netUtil logInWithStudent:self.student completionHandler:^{
-        NSLog(@"%@",@"登录成功");
-        [self performSegueWithIdentifier:@"courseChart" sender:self.student];
+    
+    [SpinnerHud show];
+    //
+    [self.netUtil logInWithStudent:self.student completionHandler:^(BOOL success) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [SpinnerHud hide];
+            if(success){
+    //            NSLog(@"%@",@"登录成功");
+                [self performSegueWithIdentifier:@"courseChart" sender:self.student];
+            }else{
+                [MBProgressHUD showMsg:@"验证码错误" forSeconds:1.5];
+                [self.checkCodeImg showPlaceHolder];
+                [self.netUtil verifyImgWithStudent:self.student completionHandler:^(UIImage *verifyImg) {
+                    [self.checkCodeImg hidePlaceHolder];
+                    self.checkCodeImg.image=verifyImg;
+                }];
+            }
+        });
     }];
 }
+
 
 #pragma mark - 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
