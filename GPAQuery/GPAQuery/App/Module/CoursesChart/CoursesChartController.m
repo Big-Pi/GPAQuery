@@ -66,10 +66,13 @@
     }
     
     BarChartDataSet *set=[[BarChartDataSet alloc]initWithYVals:entries];
+    [set setHighlightEnabled:NO];
     set.drawValuesEnabled=YES;
     BarChartData *data=[[BarChartData alloc]initWithXVals:xValues dataSet:set];
     
     //自定义BarChart
+    self.barChart.scaleXEnabled=NO;
+    self.barChart.scaleYEnabled=NO;
     self.barChart.xAxis.labelPosition=XAxisLabelPositionBottomInside;
     self.barChart.data=data;
     self.barChart.xAxis.drawAxisLineEnabled=NO;
