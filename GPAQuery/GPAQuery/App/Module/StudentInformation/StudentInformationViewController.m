@@ -35,6 +35,11 @@
     
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self setupBasicMenu];
+}
+
 #pragma mark - Private
 -(void)reloadData:(Student*)student{
     [SpinnerHud showInView:self.view];
@@ -44,6 +49,18 @@
         [self.tableView reloadData];
     }];
 }
+
+-(void)addMenu{
+    REMenuItem *refreshItem = [[REMenuItem alloc] initWithTitle:@"刷新"
+                                                       subtitle:@""
+                                                          image:nil
+                                               highlightedImage:nil
+                                                         action:^(REMenuItem *item) {
+                                                             [self reloadData:self.student];
+                                                         }];
+    self.menu= [[REMenu alloc]initWithItems:@[refreshItem]];
+}
+
 
 #pragma mark - TableView
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

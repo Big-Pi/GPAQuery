@@ -33,6 +33,11 @@
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self setupBasicMenu];
+}
+
 #pragma mark - Private
 -(void)reloadData:(Student*)student{
     [SpinnerHud showInView:self.view];
@@ -40,6 +45,24 @@
         [SpinnerHud hide];
         [self strokeChartWIthScoreStats:self.student.scoreStats];
     }];
+}
+
+-(void)addMenu{
+    REMenuItem *refreshItem = [[REMenuItem alloc] initWithTitle:@"刷新"
+                                                    subtitle:@""
+                                                       image:nil
+                                            highlightedImage:nil
+                                                      action:^(REMenuItem *item) {
+                                                          [self reloadData:self.student];
+                                                      }];
+    REMenuItem *shareItem = [[REMenuItem alloc] initWithTitle:@"分享"
+                                                    subtitle:@""
+                                                       image:nil
+                                            highlightedImage:nil
+                                                      action:^(REMenuItem *item) {
+                                                          [self share:@"scroeStatsController"];
+                                                      }];
+    self.menu= [[REMenu alloc]initWithItems:@[refreshItem,shareItem]];
 }
 
 #pragma mark - ios-Charts

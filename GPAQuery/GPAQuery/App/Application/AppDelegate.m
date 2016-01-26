@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+//#import "UMSocial.h"
+//#import "UMSocialQQHandler.h"
 
 @interface AppDelegate ()
 
@@ -14,9 +16,12 @@
 
 @implementation AppDelegate
 
-
+//56a65ebf67e58e7d0300025c umeng key
+//1105142270 //QQ
+//u0PFYPpxxXhfFNEM
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+//    [UMSocialData setAppKey:@"56a65ebf67e58e7d0300025c"];
+//    [UMSocialQQHandler setQQWithAppId:@"1105142270" appKey:@"u0PFYPpxxXhfFNEM" url:nil];
     return YES;
 }
 

@@ -73,6 +73,12 @@
 		0EEA09591C5657A0009E1FCB /* goodsPrice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EEA09511C5657A0009E1FCB /* goodsPrice@2x.png */; };
 		0EEA095A1C5657A0009E1FCB /* goodsPrice_d@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EEA09521C5657A0009E1FCB /* goodsPrice_d@2x.png */; };
 		0EEA095B1C5657A0009E1FCB /* tabbarBk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EEA09531C5657A0009E1FCB /* tabbarBk@2x.png */; };
+		0EEA09961C5697C0009E1FCB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EEA09951C5697C0009E1FCB /* libsqlite3.tbd */; };
+		0EEA09981C5697D1009E1FCB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EEA09971C5697D1009E1FCB /* SystemConfiguration.framework */; };
+		0EEA099A1C5697EA009E1FCB /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EEA09991C5697EA009E1FCB /* CoreTelephony.framework */; };
+		0EEA099C1C5697FD009E1FCB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EEA099B1C5697FD009E1FCB /* Security.framework */; };
+		0EEA099E1C56981C009E1FCB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EEA099D1C56981C009E1FCB /* libz.tbd */; };
+		0EEA09A01C569829009E1FCB /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EEA099F1C569829009E1FCB /* libstdc++.tbd */; };
 		C0073C90B9978CFD8D3C9910 /* Pods_GPAQuery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D279EB53854A6D9BE4A0D8A7 /* Pods_GPAQuery.framework */; };
 /* End PBXBuildFile section */
 
@@ -218,6 +224,12 @@
 		0EEA09511C5657A0009E1FCB /* goodsPrice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goodsPrice@2x.png"; sourceTree = "<group>"; };
 		0EEA09521C5657A0009E1FCB /* goodsPrice_d@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goodsPrice_d@2x.png"; sourceTree = "<group>"; };
 		0EEA09531C5657A0009E1FCB /* tabbarBk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbarBk@2x.png"; sourceTree = "<group>"; };
+		0EEA09951C5697C0009E1FCB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		0EEA09971C5697D1009E1FCB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0EEA09991C5697EA009E1FCB /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		0EEA099B1C5697FD009E1FCB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0EEA099D1C56981C009E1FCB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		0EEA099F1C569829009E1FCB /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		37981587266623B878B167FE /* Pods-GPAQuery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPAQuery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPAQuery/Pods-GPAQuery.debug.xcconfig"; sourceTree = "<group>"; };
 		D279EB53854A6D9BE4A0D8A7 /* Pods_GPAQuery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPAQuery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBA7954FDECAAA9C48A191B4 /* Pods-GPAQuery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPAQuery.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPAQuery/Pods-GPAQuery.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +240,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EEA09A01C569829009E1FCB /* libstdc++.tbd in Frameworks */,
+				0EEA099E1C56981C009E1FCB /* libz.tbd in Frameworks */,
+				0EEA099C1C5697FD009E1FCB /* Security.framework in Frameworks */,
+				0EEA099A1C5697EA009E1FCB /* CoreTelephony.framework in Frameworks */,
+				0EEA09981C5697D1009E1FCB /* SystemConfiguration.framework in Frameworks */,
+				0EEA09961C5697C0009E1FCB /* libsqlite3.tbd in Frameworks */,
 				C0073C90B9978CFD8D3C9910 /* Pods_GPAQuery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,6 +592,12 @@
 		33103213DD522F59140CBF28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0EEA099F1C569829009E1FCB /* libstdc++.tbd */,
+				0EEA099D1C56981C009E1FCB /* libz.tbd */,
+				0EEA099B1C5697FD009E1FCB /* Security.framework */,
+				0EEA09991C5697EA009E1FCB /* CoreTelephony.framework */,
+				0EEA09971C5697D1009E1FCB /* SystemConfiguration.framework */,
+				0EEA09951C5697C0009E1FCB /* libsqlite3.tbd */,
 				0E872B8E1C4B472D00CE2743 /* libxml2.2.tbd */,
 				0E872B8C1C4B471500CE2743 /* libxml2.tbd */,
 				0E872B861C4B3DC900CE2743 /* libiconv.2.tbd */,
@@ -673,6 +697,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 0EB4587B1C2274F10040AE70;
 			productRefGroup = 0EB458851C2274F20040AE70 /* Products */;
@@ -969,6 +994,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: big.pi@icloud.com (C6QVXFR836)";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -978,6 +1004,7 @@
 				INFOPLIST_FILE = GPAQuery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1002,6 +1029,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: big.pi@icloud.com (C6QVXFR836)";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -1011,6 +1039,7 @@
 				INFOPLIST_FILE = GPAQuery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

@@ -30,6 +30,11 @@
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self setupBasicMenu];
+}
+
 -(HorizontalBarChartView *)barChart{
     if(!_barChart){
         _barChart=[[HorizontalBarChartView alloc]init];
@@ -46,6 +51,32 @@
         [self strokeBarChartWithCourses:self.student.historyCourses];
     }];
 }
+
+-(void)addMenu{
+    REMenuItem *refreshItem = [[REMenuItem alloc] initWithTitle:@"刷新"
+                                                       subtitle:@""
+                                                          image:nil
+                                               highlightedImage:nil
+                                                         action:^(REMenuItem *item) {
+                                                             [self reloadData:self.student];
+                                                         }];
+    REMenuItem *shareItem = [[REMenuItem alloc] initWithTitle:@"分享"
+                                                     subtitle:@""
+                                                        image:nil
+                                             highlightedImage:nil
+                                                       action:^(REMenuItem *item) {
+                                                           [self share:@"CoursesChartController"];
+                                                       }];
+    REMenuItem *saveChartItem = [[REMenuItem alloc] initWithTitle:@"保存图表到相册"
+                                                     subtitle:@""
+                                                        image:nil
+                                             highlightedImage:nil
+                                                       action:^(REMenuItem *item) {
+                                                           [self.barChart saveToCameraRoll];
+                                                       }];
+    self.menu= [[REMenu alloc]initWithItems:@[refreshItem,shareItem,saveChartItem]];
+}
+
 #pragma mark - ios-Charts
 
 -(void)strokeBarChartWithCourses:(NSArray*)courses{

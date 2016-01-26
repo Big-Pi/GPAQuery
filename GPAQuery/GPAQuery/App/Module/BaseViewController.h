@@ -12,8 +12,12 @@
 #import "CXHTMLDocument+StringValueForXPath.h"
 #import "SpinnerHud.h"
 #import "MBProgressHUD+TextMsg.h"
+#import "REMenu.h"
 
 @interface BaseViewController : UIViewController
 @property (strong,nonatomic) Student *student;
 @property (strong,nonatomic) NetUtil *netUtil;
+@property (strong,nonatomic) REMenu *menu;
+-(void)setupBasicMenu;
+-(void)share:(NSString*)text;
 @end

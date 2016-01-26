@@ -9,6 +9,7 @@
 #import "LogInViewController.h"
 #import "UIImageView+PlaceHolderSpinner.h"
 #import "SlideTabViewController.h"
+//#import "UMSocial.h"
 
 
 @interface LogInViewController ()
@@ -21,9 +22,8 @@
 
 @implementation LogInViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self.netUtil getSessionIDWithStudent:self.student completionHandler:^{
         [self reloadVerifyImage:self.student];
     }];
@@ -64,4 +64,5 @@
         vc.student=self.student;
     }
 }
+
 @end
