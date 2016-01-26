@@ -7,11 +7,15 @@
 //  Copyright (c) 2013 Jan Weiß. Some rights reserved: <http://opensource.org/licenses/BSD-3-Clause>
 //
 
+#import <UIKit/UIKit.h>
+
 #if defined(NSRect)
 #define JXLSRECT NSRect
 #else
 #define JXLSRECT CGRect
 #endif
+
+
 
 @class JXLSRange;
 @class JXLSCell;

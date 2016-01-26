@@ -55,6 +55,7 @@
 		0EC6DD491C4DF0EB00041CA4 /* CXMLUnsupportedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6DD381C4DF0EB00041CA4 /* CXMLUnsupportedNode.m */; };
 		0EC6DD4A1C4DF0EB00041CA4 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6DD3B1C4DF0EB00041CA4 /* CTidy.m */; };
 		0ED66D341C5096A0002DD95F /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED66D331C5096A0002DD95F /* Helper.m */; };
+		0EE203951C576CF0000999AF /* OBJ2ExcelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE203941C576CF0000999AF /* OBJ2ExcelHelper.m */; };
 		0EEA090F1C562CE3009E1FCB /* GPADescription.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EEA090E1C562CE3009E1FCB /* GPADescription.plist */; };
 		0EEA09121C56353B009E1FCB /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEA09111C56353B009E1FCB /* BaseViewController.m */; };
 		0EEA09271C563551009E1FCB /* DLLRUCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEA09181C563551009E1FCB /* DLLRUCache.m */; };
@@ -195,6 +196,8 @@
 		0EC6DD3C1C4DF0EB00041CA4 /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
 		0ED66D321C5096A0002DD95F /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		0ED66D331C5096A0002DD95F /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		0EE203931C576CF0000999AF /* OBJ2ExcelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBJ2ExcelHelper.h; sourceTree = "<group>"; };
+		0EE203941C576CF0000999AF /* OBJ2ExcelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBJ2ExcelHelper.m; sourceTree = "<group>"; };
 		0EEA090E1C562CE3009E1FCB /* GPADescription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GPADescription.plist; sourceTree = "<group>"; };
 		0EEA09101C56353B009E1FCB /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		0EEA09111C56353B009E1FCB /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
@@ -389,6 +392,8 @@
 				0E822FD61C55F6D900B9AF76 /* SpinnerHud.m */,
 				0E822FD81C56076000B9AF76 /* MBProgressHUD+TextMsg.h */,
 				0E822FD91C56076000B9AF76 /* MBProgressHUD+TextMsg.m */,
+				0EE203931C576CF0000999AF /* OBJ2ExcelHelper.h */,
+				0EE203941C576CF0000999AF /* OBJ2ExcelHelper.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -831,6 +836,7 @@
 				0EEA09121C56353B009E1FCB /* BaseViewController.m in Sources */,
 				0EC6DD441C4DF0EB00041CA4 /* CXMLElement_ElementTreeExtensions.m in Sources */,
 				0EEA092B1C563551009E1FCB /* DLScrollTabbarView.m in Sources */,
+				0EE203951C576CF0000999AF /* OBJ2ExcelHelper.m in Sources */,
 				0EEA092D1C563551009E1FCB /* DLUtility.m in Sources */,
 				0E68864E1C4A868800455868 /* SYNUAPI.m in Sources */,
 				0E1575FC1C50EE0700784B30 /* StudentInformationCell.m in Sources */,

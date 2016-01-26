@@ -49,6 +49,7 @@
     [self.netUtil getAllCourses:self.student completionHandler:^{
         [SpinnerHud hide];
         [self strokeBarChartWithCourses:self.student.historyCourses];
+        [self.barChart animateWithYAxisDuration:1.4];
     }];
 }
 

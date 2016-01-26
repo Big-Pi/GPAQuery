@@ -8,6 +8,7 @@
 
 #import "CoursesTableController.h"
 #import "CourseTableCell.h"
+#import "OBJ2ExcelHelper.h"
 
 @interface CoursesTableController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -20,6 +21,7 @@
     NSLog(@"%@",@"表格 Load");
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableHeaderCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
+    self.tableView.tableHeaderView=[self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"].contentView;
     //
     if(self.student.historyCourses && self.student.historyCourses.count>0){
         self.historyCourses=self.student.historyCourses;
@@ -41,7 +43,7 @@
     [self.netUtil getAllCourses:self.student completionHandler:^{
         [SpinnerHud hide];
         self.historyCourses=self.student.historyCourses;
-        [self.tableView reloadData];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
     }];
 }
 
@@ -65,7 +67,9 @@
                                                             image:nil
                                                  highlightedImage:nil
                                                            action:^(REMenuItem *item) {
-                                                               
+                                                               [OBJ2ExcelHelper generateExcelWithName:self.student.studentID courses:self.student.historyCourses completion:^{
+                                                                   [MBProgressHUD showMsg:@"成绩信息已保存到文档目录" forSeconds:1.5];
+                                                               }];
                                                            }];
     self.menu= [[REMenu alloc]initWithItems:@[refreshItem,shareItem,saveDataItem]];
 }
@@ -78,11 +82,6 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CourseTableCell *cell=[tableView dequeueReusableCellWithIdentifier:@"Cell"];
     [cell configWithCourse:self.historyCourses[indexPath.row]];
-    return cell;
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UITableViewCell *cell= [tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
     return cell;
 }
 @end

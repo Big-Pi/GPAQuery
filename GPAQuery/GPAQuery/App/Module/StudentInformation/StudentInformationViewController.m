@@ -46,7 +46,7 @@
     [self.netUtil getStudentInformation:self.student completionHandler:^{
         [SpinnerHud hide];
         self.dataArray=[self buildDataFromStudent:self.student];
-        [self.tableView reloadData];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
     }];
 }
 

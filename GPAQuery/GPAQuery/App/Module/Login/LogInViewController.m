@@ -35,7 +35,7 @@
     self.student.pwd=self.pwdTextField.text;
     self.student.checkCode=self.checkCodeTextField.text;
     self.student.studentID=self.student.userName;
-    
+    self.checkCodeTextField.text=@"";
     [SpinnerHud showInView:self.view];
     //
     [self.netUtil logInWithStudent:self.student completionHandler:^(BOOL success) {

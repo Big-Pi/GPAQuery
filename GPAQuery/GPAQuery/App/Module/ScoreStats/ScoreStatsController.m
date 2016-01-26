@@ -44,6 +44,7 @@
     [self.netUtil getScoreStats:self.student completionHandler:^{
         [SpinnerHud hide];
         [self strokeChartWIthScoreStats:self.student.scoreStats];
+        [self.pieChart animateWithYAxisDuration:2.0];
     }];
 }
 
