@@ -7,6 +7,12 @@
 //
 
 #import "BaseViewController.h"
+#import "UMengShareInit.h"
+
+@interface BaseViewController ()<UMSocialUIDelegate>
+
+
+@end
 
 @implementation BaseViewController
 -(NetUtil *)netUtil{
@@ -30,7 +36,7 @@
     if([self respondsToSelector:sel]){
         [self performSelector:sel];
     }
-    self.parentViewController.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"Dark_Menu_Icon_Setting"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleMenu)];
+    self.parentViewController.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"Group"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleMenu)];
 #pragma clang diagnostic pop
 }
 
@@ -42,12 +48,28 @@
     [self.menu showFromNavigationController:self.navigationController];
 }
 
+#pragma mark - Share
 -(void)share:(NSString*)text{
-    //    [UMSocialSnsService presentSnsIconSheetView:self
-    //                                         appKey:@"56a65ebf67e58e7d0300025c"
-    //                                      shareText:@"你要分享的文字"
-    //                                     shareImage:nil
-    //                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToWechatSession,UMShareToQQ,nil]
-    //                                       delegate:nil];
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:kUMengAppKey
+                                      shareText:text
+                                     shareImage:nil
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToQQ,nil]
+                                       delegate:self];
 }
+
+#pragma mark - Share Delegate
+-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response{
+    NSString *msg;
+    if(response.responseCode==UMSResponseCodeSuccess){
+        msg=@"分享成功";
+    }else{
+        msg=@"分享失败";
+    }
+    if(response.responseCode==UMSResponseCodeCancel){
+        return;
+    }
+    [MBProgressHUD showMsg:msg forSeconds:1.25];
+}
+
 @end

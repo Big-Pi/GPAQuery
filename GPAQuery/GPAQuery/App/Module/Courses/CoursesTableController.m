@@ -9,6 +9,7 @@
 #import "CoursesTableController.h"
 #import "CourseTableCell.h"
 #import "OBJ2ExcelHelper.h"
+#import "Student+GPACalc.h"
 
 @interface CoursesTableController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -44,6 +45,7 @@
         [SpinnerHud hide];
         self.historyCourses=self.student.historyCourses;
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+        
     }];
 }
 

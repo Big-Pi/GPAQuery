@@ -42,9 +42,11 @@
 -(void)reloadData:(Student*)student{
     [SpinnerHud showInView:self.view];
     [self.netUtil getScoreStats:self.student completionHandler:^{
-        [SpinnerHud hide];
-        [self strokeChartWIthScoreStats:self.student.scoreStats];
-        [self.pieChart animateWithYAxisDuration:2.0];
+        [self.netUtil getUnPassedCourses:self.student completionHandler:^{
+            [SpinnerHud hide];
+            [self strokeChartWIthScoreStats:self.student.scoreStats];
+            [self.pieChart animateWithYAxisDuration:2.0];
+        }];
     }];
 }
 

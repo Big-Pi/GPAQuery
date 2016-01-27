@@ -13,7 +13,6 @@
 #pragma mark - XPaths
 NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
 
-
 @interface Course ()
 @property (assign,nonatomic,readwrite) SYNUCourseType SYNUCourseType;
 //
@@ -95,10 +94,18 @@ NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
     _score=score;
 }
 
+-(void)setCourseType:(NSString *)courseType{
+    _courseType=courseType;
+    //通识必修 学科必修 公共选修
+    if([courseType containsString:@"公共选修"]){
+        self.SYNUCourseType=SYNUCourseTypeHistory;
+    }
+}
+
 -(void)parseCourseFromNode:(CXMLNode*)node{
     NSArray *children=node.children;
     if(children.count==16){
-        self.SYNUCourseType=SYNUCourseTypeHistory;
+        self.SYNUCourseType=SYNUCourseTypeHistoryGPACalc;
         self.year=((CXMLNode*)children[0]).stringValue;
         self.term=((CXMLNode*)children[1]).stringValue;
         self.courseCode=((CXMLNode*)children[2]).stringValue;

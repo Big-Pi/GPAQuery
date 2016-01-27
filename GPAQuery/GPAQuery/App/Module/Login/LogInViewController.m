@@ -12,7 +12,7 @@
 //#import "UMSocial.h"
 
 
-@interface LogInViewController ()
+@interface LogInViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
 @property (weak, nonatomic) IBOutlet UITextField *checkCodeTextField;
@@ -63,6 +63,16 @@
         SlideTabViewController *vc= segue.destinationViewController;
         vc.student=self.student;
     }
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if(range.length + range.location > textField.text.length){
+        return NO;
+    }
+    
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    return newLength <= 4;
 }
 
 @end

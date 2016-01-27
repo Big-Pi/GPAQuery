@@ -9,5 +9,5 @@
 #import "Student.h"
 
 @interface Student (GPACalc)
-
+-(void)calcGPA;
 @end

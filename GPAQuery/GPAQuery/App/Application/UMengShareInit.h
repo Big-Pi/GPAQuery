@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UMSocial.h"
 
+extern NSString *const kUMengAppKey;
+extern NSString *const kQQAppID;
+extern NSString *const kQQAppKey;
 @interface UMengShareInit : NSObject
 
 @end

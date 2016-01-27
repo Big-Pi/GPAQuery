@@ -31,6 +31,11 @@ extern NSString *const kGrade;
 @property (strong,nonatomic) NSArray *unPassCourses;
 @property (strong,nonatomic) ScoreStats *scoreStats;
 //
+@property (copy,nonatomic) NSString *creditSum;
+
+@property (copy,nonatomic) NSString *GPA;
+
+//
 @property (strong,nonatomic) UIImage *verifyImg;//验证码图片
 @property (strong,nonatomic) UIImage *avatarImg;//头像图片
 @property (copy,nonatomic) NSString *userSessionID;

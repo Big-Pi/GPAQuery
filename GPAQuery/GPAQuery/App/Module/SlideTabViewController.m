@@ -55,16 +55,17 @@
     BaseViewController *vc;
     switch (index) {
         case 0:
-            vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"StudentInformationViewController"];
+            vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+                  instantiateViewControllerWithIdentifier:@"CoursesChartController"];
             break;
         case 1:
             vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CoursesTableController"];
             break;
         case 2:
-            vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CoursesChartController"];
+            vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ScoreStatsController"];
             break;
         case 3:
-            vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ScoreStatsController"];
+            vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"StudentInformationViewController"];
             break;
         default:
             break;

@@ -9,5 +9,5 @@
 #import "Student.h"
 
 @interface Student (Definition)
-
+-(NSString*)definitionFromGPA;
 @end

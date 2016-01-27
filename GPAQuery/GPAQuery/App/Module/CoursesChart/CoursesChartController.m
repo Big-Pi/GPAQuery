@@ -8,6 +8,8 @@
 
 #import "CoursesChartController.h"
 #import "Course.h"
+#import "Student+GPACalc.h"
+#import "Student+Definition.h"
 
 @import Charts;
 
@@ -50,6 +52,9 @@
         [SpinnerHud hide];
         [self strokeBarChartWithCourses:self.student.historyCourses];
         [self.barChart animateWithYAxisDuration:1.4];
+        [self.student calcGPA];
+        NSLog(@"%@",self.student.GPA);
+        NSLog(@"%@",[self.student definitionFromGPA]);
     }];
 }
 

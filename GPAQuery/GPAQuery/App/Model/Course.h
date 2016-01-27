@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 
 typedef enum : NSUInteger {
-    SYNUCourseTypeHistory,
-    SYNUCourseTypeUnPass
+    SYNUCourseTypeHistory, //所有历史课程
+    SYNUCourseTypeUnPass,   //未通过课程
+    SYNUCourseTypeHistoryGPACalc //历史课程中需要计算绩点的课程 (公共选修课等不需要计算绩点)
 } SYNUCourseType;
 
 @interface Course : NSObject
