@@ -35,28 +35,33 @@
  *  @param pwd
  *  @param checkCode
  */
--(void)logInWithStudent:(Student*)student completionHandler:(void (^)(BOOL success))completionHandler{
+-(void)logInWithStudent:(Student*)student completionHandler:(void (^)(BOOL success,NSString *errorMsg))completionHandler{
     NSString *logInUrl=[SYNUAPI generateLogInUrl:student.userSessionID];
     
     NSString *logInBody=[SYNUAPI generateLogInBody:student.userName pwd:student.pwd checkCode:student.checkCode];
     
     [self post:logInUrl bodyStr:logInBody completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        BOOL success=[self validateLogInSuccess:responseObject];
-        if(success){
+        NSString *errorMsg= [self validateLogInSuccess:responseObject];
+        
+        if(!errorMsg){
             student.studentName= [self parseStudentNameFromData:responseObject];
         }
-        completionHandler(success);
+        completionHandler(!errorMsg,errorMsg);
     }];
 }
 
--(BOOL)validateLogInSuccess:(NSData*)responseData{
+-(NSString*)validateLogInSuccess:(NSData*)responseData{
     NSString *str=[[NSString alloc]initWithData:responseData encoding:[Helper gbkEncoding]];
     NSLog(@"%@",str);
+    NSString *errorMsg=nil;
     if([str containsString:@"验证码不正确"]){
-        return NO;
-    }else{
-       return YES;
+        errorMsg=@"验证码不正确";
+    }else if([str containsString:@"密码错误"]){
+        errorMsg=@"密码错误";
+    }else if([str containsString:@"用户名不存在或未按照要求参加教学活动"]){
+        errorMsg=@"用户名不存在或未按照要求参加教学活动";
     }
+    return errorMsg;
 }
 
 /**

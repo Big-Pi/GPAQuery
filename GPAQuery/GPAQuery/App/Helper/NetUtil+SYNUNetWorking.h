@@ -12,7 +12,7 @@
 
 @interface NetUtil (SYNUNetWorking)
 -(void)getSessionIDWithStudent:(Student*)student completionHandler:(void (^)())completionHandler;
--(void)logInWithStudent:(Student*)student completionHandler:(void (^)(BOOL success))completionHandler;
+-(void)logInWithStudent:(Student*)student completionHandler:(void (^)(BOOL success,NSString *errorMsg))completionHandler;
 -(void)getStudentInformation:(Student*)student completionHandler:(void (^)())completionHandler;
 
 -(void)getUnPassedCourses:(Student*)student completionHandler:(void (^)())completionHandler;

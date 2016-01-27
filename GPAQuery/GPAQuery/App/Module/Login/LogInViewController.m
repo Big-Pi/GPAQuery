@@ -38,12 +38,12 @@
     self.checkCodeTextField.text=@"";
     [SpinnerHud showInView:self.view];
     //
-    [self.netUtil logInWithStudent:self.student completionHandler:^(BOOL success) {
+    [self.netUtil logInWithStudent:self.student completionHandler:^(BOOL success, NSString *errorMsg) {
         [SpinnerHud hide];
         if(success){
             [self performSegueWithIdentifier:@"slideTab" sender:self.student];
         }else{
-            [MBProgressHUD showMsg:@"验证码错误" forSeconds:1.5];
+            [MBProgressHUD showMsg:errorMsg forSeconds:1.5];
             [self reloadVerifyImage:self.student];
         }
     }];
