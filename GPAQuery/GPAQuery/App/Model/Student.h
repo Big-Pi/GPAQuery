@@ -28,6 +28,7 @@ extern NSString *const kGrade;
 
 @interface Student : NSObject
 @property (strong,nonatomic) NSArray *historyCourses;
+@property (strong,nonatomic) NSArray *historyGPACalcCourses;
 @property (strong,nonatomic) NSArray *unPassCourses;
 @property (strong,nonatomic) ScoreStats *scoreStats;
 //

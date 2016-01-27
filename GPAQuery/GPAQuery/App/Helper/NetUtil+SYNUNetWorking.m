@@ -52,7 +52,7 @@
 
 -(NSString*)validateLogInSuccess:(NSData*)responseData{
     NSString *str=[[NSString alloc]initWithData:responseData encoding:[Helper gbkEncoding]];
-    NSLog(@"%@",str);
+//    NSLog(@"%@",str);
     NSString *errorMsg=nil;
     if([str containsString:@"验证码不正确"]){
         errorMsg=@"验证码不正确";
