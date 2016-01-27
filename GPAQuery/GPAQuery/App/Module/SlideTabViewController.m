@@ -30,10 +30,10 @@
     self.slideTab.tabbarBottomSpacing = 3.0;
     
     self.slideTab.baseViewController=self;
-    DLTabedbarItem *item1=[DLTabedbarItem itemWithTitle:@"个人信息" image:nil selectedImage:nil];
+    DLTabedbarItem *item1=[DLTabedbarItem itemWithTitle:@"成绩图表" image:nil selectedImage:nil];
     DLTabedbarItem *item2=[DLTabedbarItem itemWithTitle:@"成绩" image:nil selectedImage:nil];
-    DLTabedbarItem *item3=[DLTabedbarItem itemWithTitle:@"成绩图表" image:nil selectedImage:nil];
-    DLTabedbarItem *item4=[DLTabedbarItem itemWithTitle:@"成绩统计" image:nil selectedImage:nil];
+    DLTabedbarItem *item3=[DLTabedbarItem itemWithTitle:@"成绩统计" image:nil selectedImage:nil];
+    DLTabedbarItem *item4=[DLTabedbarItem itemWithTitle:@"个人信息" image:nil selectedImage:nil];
     
     self.slideTab.tabbarItems = @[item1, item2, item3,item4];
     [self.slideTab buildTabbar];

@@ -2,25 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>10</key>
-	<string>学水：已经不能用智商与努力来评判他们了，他们已经自甘堕落，自暴自弃好多年。</string>
-	<key>9</key>
-	<string>学沫：智商不够用，却也不是很努力，每天在混着日子。总是觉得能够不劳而获。</string>
-	<key>8</key>
-	<string>学残：智商处于全疯癫状态。他们已经被学习折磨得痛苦不堪，没有人样。</string>
-	<key>7</key>
-	<string>学渣：智商处于半疯癫状态，兢兢业业，刻苦学习，却总是不得志。</string>
-	<key>6</key>
-	<string>学弱：他们因为没日没夜地熬油点灯，已经身体虚弱，不堪重负。</string>
-	<key>5</key>
-	<string>学民：智商均衡，膜拜学霸，却瞧不起学渣等人物。他们只有一个信念，总有一天超越学霸，因此艰苦奋斗。</string>
-	<key>4</key>
-	<string>学痞：他们上课睡觉，下课玩闹，但他们的成绩仍然很好。</string>
-	<key>3</key>
-	<string>学神：高大帅气，青春靓丽，不食人间烟火，天天游走在高难度的练习册当中却依然风华正茂。</string>
-	<key>2</key>
-	<string>学圣：隐匿在人间有头脑的高智商人物，社交范围广泛，融合契合度高，琴棋书画样样精通，高端大气上档次。</string>
 	<key>1</key>
-	<string>学魔：对学习走火入魔，癫狂状态，不做题会死掉。</string>
+	<string>学水:已经不能用智商与努力来评判他们了，他们已经自甘堕落，自暴自弃好多年。</string>
+	<key>2</key>
+	<string>学沫:智商不够用，却也不是很努力，每天在混着日子。总是觉得能够不劳而获。</string>
+	<key>3</key>
+	<string>学残:智商处于全疯癫状态。他们已经被学习折磨得痛苦不堪，没有人样。</string>
+	<key>4</key>
+	<string>学渣:智商处于半疯癫状态，兢兢业业，刻苦学习，却总是不得志。</string>
+	<key>5</key>
+	<string>学弱:他们因为没日没夜地熬油点灯，已经身体虚弱，不堪重负。</string>
+	<key>6</key>
+	<string>学民:智商均衡，膜拜学霸，却瞧不起学渣等人物。他们只有一个信念，总有一天超越学霸，因此艰苦奋斗。</string>
+	<key>7</key>
+	<string>学痞:他们上课睡觉，下课玩闹，但他们的成绩仍然很好。</string>
+	<key>8</key>
+	<string>学神:高大帅气，青春靓丽，不食人间烟火，天天游走在高难度的练习册当中却依然风华正茂。</string>
+	<key>9</key>
+	<string>学圣:隐匿在人间有头脑的高智商人物，社交范围广泛，融合契合度高，琴棋书画样样精通，高端大气上档次。</string>
+	<key>10</key>
+	<string>学魔:对学习走火入魔，癫狂状态，不做题会死掉。</string>
 </dict>
 </plist>

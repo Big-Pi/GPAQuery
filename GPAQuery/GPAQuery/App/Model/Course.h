@@ -30,6 +30,7 @@ typedef enum : NSUInteger {
 @property (copy,nonatomic,readonly) NSString *institute;//开课学院
 @property (copy,nonatomic,readonly) NSString *mark;//备注
 @property (copy,nonatomic,readonly) NSString *retakeTag;//重修标记
+@property (copy,nonatomic,readonly) NSString *bestScore;//最高成绩
 @property (assign,nonatomic,readonly) SYNUCourseType SYNUCourseType;
 +(NSArray *)coursesFromHtmlData:(NSData *)data;
 @end

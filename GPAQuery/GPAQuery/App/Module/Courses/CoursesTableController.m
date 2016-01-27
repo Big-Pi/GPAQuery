@@ -70,7 +70,7 @@
                                                        [self addMenu];
                                                    }];
     }else{
-        showCoursesItem = [[REMenuItem alloc] initWithTitle:@"显示全部课程课程"
+        showCoursesItem = [[REMenuItem alloc] initWithTitle:@"显示全部课程"
                                                   subtitle:@""
                                                      image:nil
                                           highlightedImage:nil

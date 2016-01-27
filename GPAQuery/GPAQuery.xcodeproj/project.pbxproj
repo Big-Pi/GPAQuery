@@ -59,6 +59,9 @@
 		0E2116651C588DBA00AF148D /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E2116411C588DBA00AF148D /* TencentOpenAPI.framework */; };
 		0E2116661C588DBA00AF148D /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0E2116421C588DBA00AF148D /* TencentOpenApi_IOS_Bundle.bundle */; };
 		0E21166C1C588F8900AF148D /* Student+Definition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E21166B1C588F8900AF148D /* Student+Definition.m */; };
+		0E2116721C58C27900AF148D /* UnPassTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2116711C58C27900AF148D /* UnPassTableController.m */; };
+		0E2116751C58C38800AF148D /* UnPassCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2116741C58C38800AF148D /* UnPassCourseCell.m */; };
+		0E2116771C58C39400AF148D /* UnPassCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E2116761C58C39400AF148D /* UnPassCourseCell.xib */; };
 		0E531EA31C4FE01500B0E5B2 /* ScoreStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E531EA21C4FE01500B0E5B2 /* ScoreStats.m */; };
 		0E6886441C4A807E00455868 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6886411C4A807E00455868 /* AppDelegate.m */; };
 		0E6886461C4A807E00455868 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6886431C4A807E00455868 /* main.m */; };
@@ -220,6 +223,11 @@
 		0E2116431C588DBA00AF148D /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
 		0E21166A1C588F8900AF148D /* Student+Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Student+Definition.h"; sourceTree = "<group>"; };
 		0E21166B1C588F8900AF148D /* Student+Definition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Student+Definition.m"; sourceTree = "<group>"; };
+		0E2116701C58C27900AF148D /* UnPassTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnPassTableController.h; sourceTree = "<group>"; };
+		0E2116711C58C27900AF148D /* UnPassTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnPassTableController.m; sourceTree = "<group>"; };
+		0E2116731C58C38800AF148D /* UnPassCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnPassCourseCell.h; sourceTree = "<group>"; };
+		0E2116741C58C38800AF148D /* UnPassCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnPassCourseCell.m; sourceTree = "<group>"; };
+		0E2116761C58C39400AF148D /* UnPassCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnPassCourseCell.xib; sourceTree = "<group>"; };
 		0E531EA11C4FE01500B0E5B2 /* ScoreStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreStats.h; sourceTree = "<group>"; };
 		0E531EA21C4FE01500B0E5B2 /* ScoreStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreStats.m; sourceTree = "<group>"; };
 		0E6886401C4A807E00455868 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -380,6 +388,11 @@
 			children = (
 				0E15760E1C51083F00784B30 /* ScoreStatsController.h */,
 				0E15760F1C51083F00784B30 /* ScoreStatsController.m */,
+				0E2116701C58C27900AF148D /* UnPassTableController.h */,
+				0E2116711C58C27900AF148D /* UnPassTableController.m */,
+				0E2116731C58C38800AF148D /* UnPassCourseCell.h */,
+				0E2116741C58C38800AF148D /* UnPassCourseCell.m */,
+				0E2116761C58C39400AF148D /* UnPassCourseCell.xib */,
 			);
 			path = ScoreStats;
 			sourceTree = "<group>";
@@ -850,6 +863,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E2116611C588DBA00AF148D /* UMSnsAccountViewController.xib in Resources */,
+				0E2116771C58C39400AF148D /* UnPassCourseCell.xib in Resources */,
 				0EEA09561C5657A0009E1FCB /* goodsHSeperator@2x.png in Resources */,
 				0E6886491C4A835F00455868 /* Info.plist in Resources */,
 				0EEA095A1C5657A0009E1FCB /* goodsPrice_d@2x.png in Resources */,
@@ -965,6 +979,7 @@
 				0E1576201C513C1700784B30 /* CourseTableCell.m in Sources */,
 				0E822FDA1C56076000B9AF76 /* MBProgressHUD+TextMsg.m in Sources */,
 				0E21164C1C588DBA00AF148D /* CXMLNode_CreationExtensions.m in Sources */,
+				0E2116751C58C38800AF148D /* UnPassCourseCell.m in Sources */,
 				0E2116441C588DBA00AF148D /* DLLRUCache.m in Sources */,
 				0E2116461C588DBA00AF148D /* DLSlideView.m in Sources */,
 				0E2116481C588DBA00AF148D /* DLScrollTabbarView.m in Sources */,
@@ -972,6 +987,7 @@
 				0E21166C1C588F8900AF148D /* Student+Definition.m in Sources */,
 				0EACAB9B1C2DAA6600EF7261 /* Student.m in Sources */,
 				0E2116521C588DBA00AF148D /* CXMLElement_ElementTreeExtensions.m in Sources */,
+				0E2116721C58C27900AF148D /* UnPassTableController.m in Sources */,
 				0EEA09121C56353B009E1FCB /* BaseViewController.m in Sources */,
 				0EE203951C576CF0000999AF /* OBJ2ExcelHelper.m in Sources */,
 				0E68864E1C4A868800455868 /* SYNUAPI.m in Sources */,

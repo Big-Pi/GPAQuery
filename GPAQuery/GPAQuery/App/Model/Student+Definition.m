@@ -30,7 +30,7 @@
         level=10;
     }
     NSString *levelKey=[NSString stringWithFormat:@"%d",level];
-    return [self definitions][levelKey];
+    return [[self definitions]valueForKey:levelKey];
 }
 
 -(NSDictionary*)definitions{
