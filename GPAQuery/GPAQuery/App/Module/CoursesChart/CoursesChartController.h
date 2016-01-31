@@ -10,5 +10,6 @@
 #import "BaseViewController.h"
 
 @interface CoursesChartController : BaseViewController
-
+@property (assign,nonatomic) BOOL showAllHistoryCourses;
+-(void)strokeBarChartWithCourses:(NSArray*)courses;
 @end

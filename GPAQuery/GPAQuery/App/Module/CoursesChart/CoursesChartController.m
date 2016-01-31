@@ -15,17 +15,21 @@
 @interface CoursesChartController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong,nonatomic) HorizontalBarChartView *barChart;
+@property (strong,nonatomic) NSArray *courses;
 @end
 
 @implementation CoursesChartController
 -(void)viewDidLoad{
     [super viewDidLoad];
     NSLog(@"%@",@"成绩图表 Load");
+    self.scrollView.backgroundColor=kWihteBG;
+    self.barChart.backgroundColor=kWihteBG;
+    self.barChart.gridBackgroundColor=kWihteBG;
     self.barChart.noDataText=@"正在努力加载解析~";
     self.barChart.descriptionText=@"";
     
     if(self.student.historyCourses && self.student.historyCourses.count>0){
-        [self strokeBarChartWithCourses:self.student.historyCourses];
+        [self strokeBarChartWithCourses:self.student.historyGPACalcCourses];
     }else{
         [self reloadData:self.student];
     }
@@ -49,7 +53,7 @@
     [SpinnerHud showInView:self.view];
     [self.netUtil getAllCourses:self.student completionHandler:^{
         [SpinnerHud hide];
-        [self strokeBarChartWithCourses:self.student.historyCourses];
+        [self strokeBarChartWithCourses:self.student.historyGPACalcCourses];
         [self.barChart animateWithYAxisDuration:1.4];
     }];
 }
@@ -62,6 +66,31 @@
                                                          action:^(REMenuItem *item) {
                                                              [self reloadData:self.student];
                                                          }];
+    //显示哪个 item
+    REMenuItem *showCoursesItem ;
+    if(self.showAllHistoryCourses){
+        showCoursesItem = [[REMenuItem alloc] initWithTitle:@"去除绩点无关课程"
+                                                   subtitle:@""
+                                                      image:nil
+                                           highlightedImage:nil
+                                                     action:^(REMenuItem *item) {
+                                                         self.showAllHistoryCourses=!self.showAllHistoryCourses;
+                                                         self.courses=self.student.historyGPACalcCourses;
+                                                         [self strokeBarChartWithCourses:self.courses];
+                                                         [self addMenu];
+                                                     }];
+    }else{
+        showCoursesItem = [[REMenuItem alloc] initWithTitle:@"显示全部课程"
+                                                   subtitle:@""
+                                                      image:nil
+                                           highlightedImage:nil
+                                                     action:^(REMenuItem *item) {
+                                                         self.showAllHistoryCourses=!self.showAllHistoryCourses;
+                                                         self.courses=self.student.historyCourses;
+                                                         [self strokeBarChartWithCourses:self.courses];
+                                                         [self addMenu];
+                                                     }];
+    }
     REMenuItem *shareItem = [[REMenuItem alloc] initWithTitle:@"分享"
                                                      subtitle:@""
                                                         image:nil
@@ -69,14 +98,16 @@
                                                        action:^(REMenuItem *item) {
                                                            [self share:@"CoursesChartController"];
                                                        }];
+    
     REMenuItem *saveChartItem = [[REMenuItem alloc] initWithTitle:@"保存图表到相册"
                                                      subtitle:@""
                                                         image:nil
                                              highlightedImage:nil
                                                        action:^(REMenuItem *item) {
                                                            [self.barChart saveToCameraRoll];
+                                                           [MBProgressHUD showMsg:@"成绩图标已保存到相册" forSeconds:1.5];
                                                        }];
-    self.menu= [[REMenu alloc]initWithItems:@[refreshItem,shareItem,saveChartItem]];
+    self.menu= [[REMenu alloc]initWithItems:@[refreshItem,showCoursesItem,shareItem,saveChartItem]];
 }
 
 #pragma mark - ios-Charts
@@ -90,23 +121,33 @@
     NSMutableArray *entries=[NSMutableArray array];
     NSMutableArray *xValues=[NSMutableArray array];
     BarChartDataEntry *entry;
-
+    NSMutableArray *colors=[NSMutableArray array];
     for (int i=0;i<courses.count; i++) {
         Course *c=courses[i];
-        entry=[[BarChartDataEntry alloc]initWithValue:[c.score doubleValue] xIndex:i];
+        if([c.scoreMakeUp floatValue]>0){
+            entry=[[BarChartDataEntry alloc]initWithValue:[c.scoreMakeUp doubleValue] xIndex:i];
+        }else{
+            entry=[[BarChartDataEntry alloc]initWithValue:[c.score doubleValue] xIndex:i];
+        }
         [entries addObject:entry];
         [xValues addObject:c.courseName];
+        if(entry.value>=60){
+            [colors addObject:[UIColor colorFromHexString:kNiceGreenLightStr]];
+        }else{
+            [colors addObject:[UIColor colorFromHexString:kNiceOrangeStr]];
+        }
     }
     
     BarChartDataSet *set=[[BarChartDataSet alloc]initWithYVals:entries];
-    [set setHighlightEnabled:NO];
     set.drawValuesEnabled=YES;
+    set.colors=colors;
     BarChartData *data=[[BarChartData alloc]initWithXVals:xValues dataSet:set];
+    [data setValueFont:[UIFont systemFontOfSize:14 weight:UIFontWeightThin]];
     
     //自定义BarChart
-    self.barChart.scaleXEnabled=NO;
-    self.barChart.scaleYEnabled=NO;
+    self.barChart.userInteractionEnabled=NO;
     self.barChart.xAxis.labelPosition=XAxisLabelPositionBottomInside;
+    self.barChart.xAxis.labelFont=[UIFont systemFontOfSize:18];
     self.barChart.data=data;
     self.barChart.xAxis.drawAxisLineEnabled=NO;
     self.barChart.xAxis.drawGridLinesEnabled=NO;
@@ -123,6 +164,10 @@
     // 参考线
     ChartLimitLine *passLine=[[ChartLimitLine alloc]initWithLimit:60 label:@"及格"];
     ChartLimitLine *excellentLine=[[ChartLimitLine alloc]initWithLimit:90 label:@"优秀"];
+    UIFont *font=[UIFont systemFontOfSize:16];
+    [passLine setValueFont:font];
+    [excellentLine setValueFont:font];
+    excellentLine.lineColor=kNiceGreen;
     [leftAxis addLimitLine:passLine];
     [leftAxis addLimitLine:excellentLine];
     //

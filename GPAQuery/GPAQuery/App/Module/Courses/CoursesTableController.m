@@ -9,6 +9,8 @@
 #import "CoursesTableController.h"
 #import "CourseTableCell.h"
 #import "OBJ2ExcelHelper.h"
+#import "CourseTableFooterCell.h"
+#import "CourseDetailTableController.h"
 
 @interface CoursesTableController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -21,16 +23,14 @@
     [super viewDidLoad];
     NSLog(@"%@",@"表格 Load");
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableHeaderCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
-    self.tableView.tableHeaderView=[self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"].contentView;
+    [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableFooterCell" bundle:nil] forCellReuseIdentifier:@"FooterCell"];
+
     //
     if(self.student.historyCourses && self.student.historyCourses.count>0){
-        self.courses=self.student.historyGPACalcCourses;
-        [self.tableView reloadData];
+        [self updateUI];
     }else{
         [self reloadData:self.student];
     }
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -43,9 +43,17 @@
     [SpinnerHud showInView:self.view];
     [self.netUtil getAllCourses:self.student completionHandler:^{
         [SpinnerHud hide];
-        self.courses=self.student.historyGPACalcCourses;
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+        [self updateUI];
     }];
+}
+
+-(void)updateUI{
+    self.courses=self.student.historyGPACalcCourses;
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+        self.tableView.tableHeaderView=[self.tableView dequeueReusableCellWithIdentifier:@"Cell"].contentView;
+    CourseTableFooterCell *footerCell=[self.tableView dequeueReusableCellWithIdentifier:@"FooterCell"];
+    [footerCell configCellWithStudent:self.student];
+        self.tableView.tableFooterView=footerCell.contentView;
 }
 
 -(void)addMenu{
@@ -105,9 +113,24 @@
     return self.courses.count;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"CourseDetail" sender:self.student];
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CourseTableCell *cell=[tableView dequeueReusableCellWithIdentifier:@"Cell"];
     [cell configWithCourse:self.courses[indexPath.row]];
     return cell;
+}
+
+#pragma mark - 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"CourseDetail"]){
+        UINavigationController *navc=segue.destinationViewController;
+        CourseDetailTableController *detailVC=(CourseDetailTableController*) navc.topViewController;
+        if([sender isKindOfClass:[Student class]]){
+            detailVC.student=sender;
+        }
+    }
 }
 @end

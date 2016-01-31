@@ -11,6 +11,6 @@
 @implementation CXHTMLDocument (StringValueForXPath)
 -(NSString*)stringValueForXPath:(NSString*)xpath{
     CXMLNode *node= [[self nodesForXPath:xpath error:NULL]lastObject];
-    return node.stringValue;
+    return node.stringValue ? node.stringValue : @"";
 }
 @end

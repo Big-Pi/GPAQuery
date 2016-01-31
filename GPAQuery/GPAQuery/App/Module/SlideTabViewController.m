@@ -14,7 +14,7 @@
 #import "CoursesChartController.h"
 #import "DLSlideView.h"
 
-@interface SlideTabViewController ()<DLTabedSlideViewDelegate,UIGestureRecognizerDelegate>
+@interface SlideTabViewController ()<DLTabedSlideViewDelegate>
 @property (weak, nonatomic) IBOutlet DLTabedSlideView *slideTab;
 @end
 
@@ -23,11 +23,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.slideTab.tabItemNormalColor = [UIColor blackColor];
-    self.slideTab.tabItemSelectedColor = [UIColor colorWithRed:0.833 green:0.052 blue:0.130 alpha:1.000];
-    self.slideTab.tabbarTrackColor = [UIColor colorWithRed:0.833 green:0.052 blue:0.130 alpha:1.000];
-    self.slideTab.tabbarBackgroundImage = [UIImage imageNamed:@"tabbarBk"];
+    self.slideTab.backgroundColor=kWihteBG;
+    self.slideTab.tabItemNormalColor = kBarBlack;
+    self.slideTab.tabItemSelectedColor = kNiceGreen;
+    self.slideTab.tabbarTrackColor = [UIColor clearColor];
+    self.slideTab.backgroundColor=kGlobalMeat;
     self.slideTab.tabbarBottomSpacing = 3.0;
+    self.slideTab.tabbarHeight=50;
     
     self.slideTab.baseViewController=self;
     DLTabedbarItem *item1=[DLTabedbarItem itemWithTitle:@"成绩图表" image:nil selectedImage:nil];
@@ -37,12 +39,8 @@
     
     self.slideTab.tabbarItems = @[item1, item2, item3,item4];
     [self.slideTab buildTabbar];
+//    self.slideTab.tabbarTrackColor
     self.slideTab.selectedIndex = 0;
-    
-    //slide pan 手势和 scrollView手势冲突处理
-    DLSlideView *slideView=[self.slideTab valueForKey:@"slideView_"];
-    UIPanGestureRecognizer *pan= [slideView valueForKey:@"pan_"];
-    pan.delegate=self;
     
 }
 
@@ -72,11 +70,6 @@
     }
     vc.student=self.student;
     return vc;
-}
-
-#pragma mark - UIGestureRecognizerDelegate
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-    return YES;
 }
 
 @end

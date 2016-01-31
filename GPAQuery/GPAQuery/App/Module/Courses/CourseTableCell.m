@@ -19,11 +19,18 @@
 
 @implementation CourseTableCell
 
+-(void)awakeFromNib{
+    self.selectionStyle=UITableViewCellSelectionStyleNone;
+}
+
 -(void)configWithCourse:(Course*)course{
     self.yearLabel.text=course.year;
     self.courseNameLabel.text=course.courseName;
     self.creditLabel.text=course.credit;
     self.scoreLabel.text=course.score;
+    if([course.scoreMakeUp floatValue]>0){
+        self.scoreLabel.text=course.scoreMakeUp;
+    }
 }
 
 @end

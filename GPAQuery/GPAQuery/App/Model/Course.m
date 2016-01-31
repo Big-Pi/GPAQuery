@@ -74,21 +74,31 @@ NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
     return self;
 }
 
+-(void)setYear:(NSString *)year{
+    if(year.length==9){
+        NSString *str1= [year substringToIndex:5];
+        NSString *str2= [year substringFromIndex:7];
+        NSString *shortYear=[NSString stringWithFormat:@"%@%@",str1,str2];
+        _year=shortYear;
+    }else{
+      _year=year;
+    }
+}
 
 -(void)setScore:(NSString *)score{
     if([Helper isChinese:score]){
         if ([score containsString:@"不"]) {
             score=[NSString stringWithFormat:@"%d",0];
         }else if([score containsString:@"及格"]){
-            score=[NSString stringWithFormat:@"%d",60];
+            score=[NSString stringWithFormat:@"%d",65];
         }else if([score containsString:@"合格"]){
-            score=[NSString stringWithFormat:@"%d",60];
+            score=[NSString stringWithFormat:@"%d",65];
         }else if ([score containsString:@"中等"]){
-            score=[NSString stringWithFormat:@"%d",70];
+            score=[NSString stringWithFormat:@"%d",75];
         }else if ([score containsString:@"良好"]){
-            score=[NSString stringWithFormat:@"%d",80];
+            score=[NSString stringWithFormat:@"%d",85];
         }else if ([score containsString:@"优秀"]){
-            score=[NSString stringWithFormat:@"%d",90];
+            score=[NSString stringWithFormat:@"%d",95];
         }
     }
     _score=score;

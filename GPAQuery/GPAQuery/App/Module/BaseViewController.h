@@ -13,6 +13,7 @@
 #import "SpinnerHud.h"
 #import "MBProgressHUD+TextMsg.h"
 #import "REMenu.h"
+#import "UIColor+Global.h"
 
 @interface BaseViewController : UIViewController
 @property (strong,nonatomic) Student *student;

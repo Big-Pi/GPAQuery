@@ -77,7 +77,7 @@
         for (DLFixedTabbarViewTabItem *item in tabbarItems) {
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x, 0, width, height)];
             label.text = item.title;
-            label.font = [UIFont systemFontOfSize:15];
+            label.font = [UIFont boldSystemFontOfSize:22];
             label.backgroundColor = [UIColor clearColor];
             label.textColor = item.titleColor;
             [label sizeToFit];

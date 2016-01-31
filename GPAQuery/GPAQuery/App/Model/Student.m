@@ -82,8 +82,8 @@ NSString *const kGrade=@"//*[@id='lbl_dqszj']";
         creditMutiplyGPASum+=credit*GPA;
     }
     //    NSLog(@"%f / 学分:%f",creditMutiplyGPASum,creditSum);
-    self.creditSum=[NSString stringWithFormat:@"%f",creditSum];
-    self.GPA=[NSString stringWithFormat:@"%f",creditMutiplyGPASum/creditSum];
+    self.creditSum=[NSString stringWithFormat:@"%.1f",creditSum];
+    self.GPA=[NSString stringWithFormat:@"%.2f",creditMutiplyGPASum/creditSum];
 }
 
 #pragma mark -

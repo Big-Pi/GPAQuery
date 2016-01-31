@@ -9,6 +9,7 @@
 #import "StudentHeader.h"
 #import "Student.h"
 #import "NetUtil+SYNUNetWorking.h"
+#import "UIColor+Global.h"
 
 @interface StudentHeader ()
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
@@ -32,6 +33,11 @@
 -(void)initPrivate{
     self.content=[[[NSBundle mainBundle]loadNibNamed:@"StudentHeader" owner:self options:nil]lastObject];
     [self addSubview:self.content];
+//    CGFloat radius= MIN(self.avatarImageView.bounds.size.height, self.avatarImageView.bounds.size.width);
+//    self.avatarImageView.layer.cornerRadius=radius/2;
+//    self.avatarImageView.layer.borderWidth=8;
+//    self.avatarImageView.layer.borderColor=[UIColor colorFromHexString:kGlobalMeatStr].CGColor;
+//    self.avatarImageView.clipsToBounds=YES;
 }
 
 -(void)layoutSubviews{
@@ -42,6 +48,7 @@
 -(void)configWithStudent:(Student*)student{
     
     [[NetUtil sharedNetUtil]getAvatarImage:student completionHandler:^(UIImage *avatarImg) {
+        
         self.avatarImageView.image=avatarImg;
     }];
     self.nameLabel.text=student.studentName;

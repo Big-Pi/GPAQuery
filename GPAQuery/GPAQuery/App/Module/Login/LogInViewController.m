@@ -9,7 +9,6 @@
 #import "LogInViewController.h"
 #import "UIImageView+PlaceHolderSpinner.h"
 #import "SlideTabViewController.h"
-//#import "UMSocial.h"
 
 
 @interface LogInViewController ()<UITextFieldDelegate>

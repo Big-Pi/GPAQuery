@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "UIColor+Global.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +16,18 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    UINavigationBar *bar= [UINavigationBar appearance];
+    bar.shadowImage=[UIImage new];
+    [bar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    bar.backgroundColor=kGlobalMeat;
+    bar.barTintColor=kGlobalMeat;
+    bar.tintColor=kBarBlack;
+    //
+    UIBarButtonItem *barItem= [UIBarButtonItem appearance];
+    barItem.tintColor=kBarBlack;
+    //
+//    [UIApplication sharedApplication].statusBarStyle=UIStatusBarStyleLightContent;
+    
     return YES;
 }
 

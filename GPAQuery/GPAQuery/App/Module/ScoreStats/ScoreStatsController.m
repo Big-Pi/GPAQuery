@@ -27,6 +27,7 @@
      NSLog(@"%@",@"学生统计信息 Load");
     self.pieChart.noDataText=@"正在努力加载解析~";
     self.pieChart.descriptionText=@"学分获得情况";
+    self.pieChart.descriptionFont=[UIFont systemFontOfSize:16];
     if(self.student.scoreStats){
         [self updateInterfaceWithStudent];
     }else{
@@ -84,9 +85,12 @@
     ChartDataEntry *entry3=[[ChartDataEntry alloc]initWithValue:[scoreStats.creditUnPass floatValue] xIndex:2];
     NSString *label= [NSString stringWithFormat:@"所选:%@ 学分",scoreStats.creditSelected];
     PieChartDataSet *ds=[[PieChartDataSet alloc]initWithYVals:@[entry1,entry2,entry3] label:label];
-    ds.colors=[ChartColorTemplates joyful];
+    ds.colors=@[[UIColor colorFromHexString:kNiceGreenStr],[UIColor colorFromHexString:kNiceYellowStr],[UIColor colorFromHexString:kNiceOrangeStr]];
     ds.valueTextColor=[UIColor blackColor];
     PieChartData *data=[[PieChartData alloc]initWithXVals:@[@"获得",@"重修",@"正考未通过"] dataSet:ds];
+    [data setValueFont:[UIFont systemFontOfSize:16]];
+    [self.pieChart.legend setFormSize:22];
+    [self.pieChart.legend setFont:[UIFont systemFontOfSize:14]];
     self.pieChart.data=data;
     
 }

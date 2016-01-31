@@ -95,9 +95,10 @@ return((CXMLNodeKind)_node->type); // TODO this isn't 100% accurate!
 
 	NSMutableString *theStringValue = [[NSMutableString alloc] init];
 	
+    //TODO 我改了这个实现 stringValue
 	for (CXMLNode *child in [self children])
 	{
-		[theStringValue appendString:[child stringValue]];
+        [theStringValue appendString:[child stringValue] ? [child stringValue] : @""];
 	}
 	
 	return theStringValue;
