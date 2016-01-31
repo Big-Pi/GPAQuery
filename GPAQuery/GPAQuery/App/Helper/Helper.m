@@ -8,6 +8,7 @@
 
 #import "Helper.h"
 
+
 NSString *const kChinese=@"[\u4e00-\u9fa5]";
 static NSRegularExpression *reg;
 
@@ -32,4 +33,11 @@ static NSRegularExpression *reg;
     return matchs.count>0;
 }
 
++(ONOXMLDocument*)docFormData:(NSData*)data{
+    NSString *str= [[NSString alloc]initWithData:data encoding:[Helper gbkEncoding]];
+    str=[str stringByReplacingOccurrencesOfString:@"gb2312" withString:@"UTF-8"];
+    NSError *error;
+    ONOXMLDocument *doc=[ONOXMLDocument HTMLDocumentWithString:str encoding:NSUTF8StringEncoding error:&error];
+    return doc;
+}
 @end

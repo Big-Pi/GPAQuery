@@ -12,8 +12,10 @@
 @implementation NSObject (Unicode)
 
 +(void)load{
+#if 0
     [self swizzleDescription:[NSArray class]];
     [self swizzleDescription:[NSDictionary class]];
+#endif
 }
 
 + (NSString *)stringByReplaceUnicode:(NSString *)string

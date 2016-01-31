@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ONOXMLDocument+StringValueForXPath.h"
+
 
 @interface Helper : NSObject
 +(NSStringEncoding)gbkEncoding;
 +(NSString*)removeChinese:(NSString*)str;
 +(BOOL)isChinese:(NSString*)str;
++(ONOXMLDocument*)docFormData:(NSData*)data;
 @end

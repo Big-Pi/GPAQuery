@@ -7,7 +7,6 @@
 //
 
 #import "ScoreStats.h"
-#import "CXHTMLDocument.h"
 #import "Helper.h"
 
 NSString *const kStatsParentPath=@"//*[@id='xftj']";
@@ -51,11 +50,10 @@ NSString *const kStatsParentPath=@"//*[@id='xftj']";
 
 #pragma mark - Private
 -(void)parseScoreStatsFromHtmlData:(NSData*)data{
-    CXHTMLDocument *html=[[CXHTMLDocument alloc]initWithXHTMLData:data encoding:[Helper gbkEncoding] options:0 error:NULL];
-    CXMLNode *parentNode= [html nodesForXPath:kStatsParentPath error:NULL][0];
-    CXMLNode *statsNode= parentNode.children[0];
-    NSString *stats=statsNode.stringValue;
-    
+    ONOXMLDocument *doc=[Helper docFormData:data];
+    ONOXMLElement *parent= [doc firstChildWithXPath:kStatsParentPath];
+    ONOXMLElement *statsElement= parent.children[0];
+    NSString *stats=statsElement.stringValue;
     NSArray *array= [stats componentsSeparatedByString:@"；"];
     self.creditSelected=array[0];
     self.creditGain=array[1];

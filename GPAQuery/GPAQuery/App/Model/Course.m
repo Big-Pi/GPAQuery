@@ -7,7 +7,6 @@
 //
 
 #import "Course.h"
-#import "CXHTMLDocument.h"
 #import "Helper.h"
 
 #pragma mark - XPaths
@@ -49,23 +48,21 @@ NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
 +(NSArray *)coursesFromHtmlData:(NSData *)data{
     
     NSMutableArray *array=[NSMutableArray array];
-    NSError *error;
-    CXHTMLDocument *html=[[CXHTMLDocument alloc]initWithXHTMLData:data encoding:[Helper gbkEncoding] options:0 error:&error];
+    ONOXMLDocument *doc=[Helper docFormData:data];
+    ONOXMLElement *tableHead= [doc firstChildWithXPath:kCourseTableHeadPath];
 
-    NSArray *nodes= [html nodesForXPath:kCourseTableHeadPath error:NULL];
-    CXMLNode *headNode=nodes[0];
-    
-    CXMLNode *courseNode;
-    for (courseNode=[headNode nextSibling]; courseNode!=nil; courseNode=[courseNode nextSibling]) {
-        Course *course=[[Course alloc]initWithNode:courseNode];
+    ONOXMLElement *courseElement;
+    for (courseElement=[tableHead nextSibling]; courseElement!=nil; courseElement=[courseElement nextSibling]) {
+        Course *course=[[Course alloc]initWithNode:courseElement];
         [array addObject:course];
     }
+    [array removeLastObject];
     return array;
 }
 
 #pragma mark - Private
 
-- (instancetype)initWithNode:(CXMLNode*)node
+- (instancetype)initWithNode:(ONOXMLElement*)node
 {
     self = [super init];
     if (self) {
@@ -112,33 +109,33 @@ NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
     }
 }
 
--(void)parseCourseFromNode:(CXMLNode*)node{
-    NSArray *children=node.children;
-    if(children.count==16){
+-(void)parseCourseFromNode:(ONOXMLElement*)element{
+    NSArray *children=element.children;
+    if(children.count==15){
         self.SYNUCourseType=SYNUCourseTypeHistoryGPACalc;
-        self.year=((CXMLNode*)children[0]).stringValue;
-        self.term=((CXMLNode*)children[1]).stringValue;
-        self.courseCode=((CXMLNode*)children[2]).stringValue;
-        self.courseName=((CXMLNode*)children[3]).stringValue;
-        self.courseType=((CXMLNode*)children[4]).stringValue;
-        self.courseSubType=((CXMLNode*)children[5]).stringValue;
-        self.credit=((CXMLNode*)children[6]).stringValue;
-        self.GPA=((CXMLNode*)children[7]).stringValue;
-        self.score=((CXMLNode*)children[8]).stringValue;
-        self.tag=((CXMLNode*)children[9]).stringValue;
-        self.scoreMakeUp=((CXMLNode*)children[10]).stringValue;
-        self.scoreRetake=((CXMLNode*)children[11]).stringValue;
-        self.institute=((CXMLNode*)children[12]).stringValue;
-        self.mark=((CXMLNode*)children[13]).stringValue;
-        self.retakeTag=((CXMLNode*)children[14]).stringValue;
-    }else if(children.count==7){
+        self.year=((ONOXMLElement*)children[0]).stringValue;
+        self.term=((ONOXMLElement*)children[1]).stringValue;
+        self.courseCode=((ONOXMLElement*)children[2]).stringValue;
+        self.courseName=((ONOXMLElement*)children[3]).stringValue;
+        self.courseType=((ONOXMLElement*)children[4]).stringValue;
+        self.courseSubType=((ONOXMLElement*)children[5]).stringValue;
+        self.credit=((ONOXMLElement*)children[6]).stringValue;
+        self.GPA=((ONOXMLElement*)children[7]).stringValue;
+        self.score=((ONOXMLElement*)children[8]).stringValue;
+        self.tag=((ONOXMLElement*)children[9]).stringValue;
+        self.scoreMakeUp=((ONOXMLElement*)children[10]).stringValue;
+        self.scoreRetake=((ONOXMLElement*)children[11]).stringValue;
+        self.institute=((ONOXMLElement*)children[12]).stringValue;
+        self.mark=((ONOXMLElement*)children[13]).stringValue;
+        self.retakeTag=((ONOXMLElement*)children[14]).stringValue;
+    }else if(children.count==6){
         self.SYNUCourseType=SYNUCourseTypeUnPass;
-        self.courseCode=((CXMLNode*)children[0]).stringValue;
-        self.courseName=((CXMLNode*)children[1]).stringValue;
-        self.courseType=((CXMLNode*)children[2]).stringValue;
-        self.credit=((CXMLNode*)children[3]).stringValue;
-        self.bestScore=((CXMLNode*)children[4]).stringValue;
-        self.courseSubType=((CXMLNode*)children[5]).stringValue;
+        self.courseCode=((ONOXMLElement*)children[0]).stringValue;
+        self.courseName=((ONOXMLElement*)children[1]).stringValue;
+        self.courseType=((ONOXMLElement*)children[2]).stringValue;
+        self.credit=((ONOXMLElement*)children[3]).stringValue;
+        self.bestScore=((ONOXMLElement*)children[4]).stringValue;
+        self.courseSubType=((ONOXMLElement*)children[5]).stringValue;
     }
 }
 @end

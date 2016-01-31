@@ -8,8 +8,8 @@
 
 #import "Student.h"
 #import <UIKit/UIImage.h>
-#import "CXHTMLDocument+StringValueForXPath.h"
 #import "Helper.h"
+#import "Ono.h"
 
 
 #pragma mark - XPaths
@@ -189,21 +189,18 @@ NSString *const kGrade=@"//*[@id='lbl_dqszj']";
 
 #pragma mark - HTML Parse
 -(void)parseStudenInformationWithHtmlData:(NSData*)data{
-    CXHTMLDocument *html=[[CXHTMLDocument alloc]initWithXHTMLData:data encoding:[Helper gbkEncoding] options:CXMLDocumentTidyHTML error:NULL];
-//    CXHTMLDocument *html=[[CXHTMLDocument alloc]initWithData:data encoding:[Helper gbkEncoding] options:CXMLDocumentTidyHTML error:NULL];
-    
-    self.studentID =[html stringValueForXPath:kStudentIDPath];
-    self.sex =[html stringValueForXPath:kSexPath];
-    self.enterSchoolTime =[html stringValueForXPath:kEnterSchoolTimePath];
-    self.nationality =[html stringValueForXPath:kNationalityPath];
-    self.politicalStatus =[html stringValueForXPath:kPoliticalStatusPath];
-    self.province =[html stringValueForXPath:kProvincePath];
-    self.major=[html stringValueForXPath:kMajor];
-    self.class0 =[html stringValueForXPath:kClass];
-    self.education =[html stringValueForXPath:kEducation];
-    self.schoolRoll =[html stringValueForXPath:kSchoolRoll];
-    self.grade =[html stringValueForXPath:kGrade];
-    
+    ONOXMLDocument *doc= [Helper docFormData:data];
+    self.studentID =[doc stringValueForXPath:kStudentIDPath];
+    self.sex =[doc stringValueForXPath:kSexPath];
+    self.enterSchoolTime =[doc stringValueForXPath:kEnterSchoolTimePath];
+    self.nationality =[doc stringValueForXPath:kNationalityPath];
+    self.politicalStatus =[doc stringValueForXPath:kPoliticalStatusPath];
+    self.province =[doc stringValueForXPath:kProvincePath];
+    self.major=[doc stringValueForXPath:kMajor];
+    self.class0 =[doc stringValueForXPath:kClass];
+    self.education =[doc stringValueForXPath:kEducation];
+    self.schoolRoll =[doc stringValueForXPath:kSchoolRoll];
+    self.grade =[doc stringValueForXPath:kGrade];
 }
 
 @end

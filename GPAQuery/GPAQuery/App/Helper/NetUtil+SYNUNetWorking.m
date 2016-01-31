@@ -12,7 +12,8 @@
 #import "Course.h"
 #import "Helper.h"
 #import "ScoreStats.h"
-#import "CXHTMLDocument+StringValueForXPath.h"
+#import "Ono.h"
+
 
 @implementation NetUtil (SYNUNetWorking)
 
@@ -164,10 +165,10 @@
  *
  */
 -(NSString*)parseStudentNameFromData:(NSData*)data{
-    CXHTMLDocument *html=[[CXHTMLDocument alloc]initWithData:data encoding:[Helper gbkEncoding] options:CXMLDocumentTidyHTML error:NULL];
-    NSString *studentName=[html stringValueForXPath:kStudentNamePath];
-    
-    studentName=[studentName stringByReplacingOccurrencesOfString:@"同学" withString:@"" options:0 range:NSMakeRange(0,studentName.length)];
+    ONOXMLDocument *doc=[Helper docFormData:data];
+    ONOXMLElement *element= [doc firstChildWithXPath:kStudentNamePath];
+    NSString *studentName=[element stringValue];
+        studentName=[studentName stringByReplacingOccurrencesOfString:@"同学" withString:@"" options:0 range:NSMakeRange(0,studentName.length)];
     return studentName;
 }
 
