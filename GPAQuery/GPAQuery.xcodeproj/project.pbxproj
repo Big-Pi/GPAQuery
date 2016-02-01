@@ -51,6 +51,7 @@
 		0E6886461C4A807E00455868 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6886431C4A807E00455868 /* main.m */; };
 		0E6886491C4A835F00455868 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E6886481C4A835F00455868 /* Info.plist */; };
 		0E68864E1C4A868800455868 /* SYNUAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E68864D1C4A868800455868 /* SYNUAPI.m */; };
+		0E7BDE9D1C5FA88500F37B6F /* NSObject+Unicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7BDE9C1C5FA88500F37B6F /* NSObject+Unicode.m */; };
 		0E822FD71C55F6D900B9AF76 /* SpinnerHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E822FD61C55F6D900B9AF76 /* SpinnerHud.m */; };
 		0E822FDA1C56076000B9AF76 /* MBProgressHUD+TextMsg.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E822FD91C56076000B9AF76 /* MBProgressHUD+TextMsg.m */; };
 		0E822FDD1C560ABB00B9AF76 /* UIImageView+PlaceHolderSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E822FDC1C560ABB00B9AF76 /* UIImageView+PlaceHolderSpinner.m */; };
@@ -192,6 +193,8 @@
 		0E6886481C4A835F00455868 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E68864C1C4A868800455868 /* SYNUAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYNUAPI.h; sourceTree = "<group>"; };
 		0E68864D1C4A868800455868 /* SYNUAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYNUAPI.m; sourceTree = "<group>"; };
+		0E7BDE9B1C5FA88500F37B6F /* NSObject+Unicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Unicode.h"; sourceTree = "<group>"; };
+		0E7BDE9C1C5FA88500F37B6F /* NSObject+Unicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Unicode.m"; sourceTree = "<group>"; };
 		0E822FD51C55F6D900B9AF76 /* SpinnerHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinnerHud.h; sourceTree = "<group>"; };
 		0E822FD61C55F6D900B9AF76 /* SpinnerHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinnerHud.m; sourceTree = "<group>"; };
 		0E822FD81C56076000B9AF76 /* MBProgressHUD+TextMsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+TextMsg.h"; sourceTree = "<group>"; };
@@ -376,6 +379,8 @@
 		0E2115EE1C588DBA00AF148D /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				0E7BDE9B1C5FA88500F37B6F /* NSObject+Unicode.h */,
+				0E7BDE9C1C5FA88500F37B6F /* NSObject+Unicode.m */,
 				0E2115EF1C588DBA00AF148D /* DLSlideView */,
 				0E2116221C588DBA00AF148D /* umeng_ios_social_sdk_4_4_arm64 */,
 			);
@@ -896,6 +901,7 @@
 				0E6886441C4A807E00455868 /* AppDelegate.m in Sources */,
 				0E21166C1C588F8900AF148D /* Student+Definition.m in Sources */,
 				0EACAB9B1C2DAA6600EF7261 /* Student.m in Sources */,
+				0E7BDE9D1C5FA88500F37B6F /* NSObject+Unicode.m in Sources */,
 				0E2116721C58C27900AF148D /* UnPassTableController.m in Sources */,
 				0EEA09121C56353B009E1FCB /* BaseViewController.m in Sources */,
 				0EE203951C576CF0000999AF /* OBJ2ExcelHelper.m in Sources */,
