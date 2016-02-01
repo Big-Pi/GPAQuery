@@ -10,6 +10,9 @@
 #import "ScoreStats.h"
 #import "Student+Definition.h"
 
+NSInteger const kDescriptionFontSize=14;
+NSInteger const kPieFontSize=14;
+NSInteger const kLegendFontSize=12;
 @import Charts;
 
 @interface ScoreStatsController ()
@@ -27,7 +30,7 @@
      NSLog(@"%@",@"学生统计信息 Load");
     self.pieChart.noDataText=@"正在努力加载解析~";
     self.pieChart.descriptionText=@"学分获得情况";
-    self.pieChart.descriptionFont=[UIFont systemFontOfSize:16];
+    self.pieChart.descriptionFont=[UIFont systemFontOfSize:kDescriptionFontSize];
     if(self.student.scoreStats){
         [self updateInterfaceWithStudent];
     }else{
@@ -88,9 +91,10 @@
     ds.colors=@[[UIColor colorFromHexString:kNiceGreenStr],[UIColor colorFromHexString:kNiceYellowStr],[UIColor colorFromHexString:kNiceOrangeStr]];
     ds.valueTextColor=[UIColor blackColor];
     PieChartData *data=[[PieChartData alloc]initWithXVals:@[@"获得",@"重修",@"正考未通过"] dataSet:ds];
-    [data setValueFont:[UIFont systemFontOfSize:16]];
+    [data setValueFont:[UIFont systemFontOfSize:kPieFontSize]];
+    [data setValueTextColor:[UIColor colorFromHexString:kBarBlackStr]];
     [self.pieChart.legend setFormSize:22];
-    [self.pieChart.legend setFont:[UIFont systemFontOfSize:14]];
+    [self.pieChart.legend setFont:[UIFont systemFontOfSize:kLegendFontSize]];
     self.pieChart.data=data;
     
 }

@@ -10,6 +10,10 @@
 #import "Course.h"
 #import "Student+Definition.h"
 
+NSInteger const kTopValueFontSize=11;
+NSInteger const kXValueFontSize=12;
+NSInteger const kLimitLineFontSize=12;
+
 @import Charts;
 
 @interface CoursesChartController ()
@@ -112,6 +116,7 @@
 
 #pragma mark - ios-Charts
 
+
 -(void)strokeBarChartWithCourses:(NSArray*)courses{
     courses=[[courses reverseObjectEnumerator]allObjects];
     CGRect rect=CGRectMake(0, 0,self.view.bounds.size.width-10,courses.count*50);
@@ -142,12 +147,12 @@
     set.drawValuesEnabled=YES;
     set.colors=colors;
     BarChartData *data=[[BarChartData alloc]initWithXVals:xValues dataSet:set];
-    [data setValueFont:[UIFont systemFontOfSize:14 weight:UIFontWeightThin]];
+    [data setValueFont:[UIFont systemFontOfSize:kTopValueFontSize weight:UIFontWeightThin]];
     
     //自定义BarChart
     self.barChart.userInteractionEnabled=NO;
     self.barChart.xAxis.labelPosition=XAxisLabelPositionBottomInside;
-    self.barChart.xAxis.labelFont=[UIFont systemFontOfSize:18];
+    self.barChart.xAxis.labelFont=[UIFont systemFontOfSize:kXValueFontSize];
     self.barChart.data=data;
     self.barChart.xAxis.drawAxisLineEnabled=NO;
     self.barChart.xAxis.drawGridLinesEnabled=NO;
@@ -164,9 +169,12 @@
     // 参考线
     ChartLimitLine *passLine=[[ChartLimitLine alloc]initWithLimit:60 label:@"及格"];
     ChartLimitLine *excellentLine=[[ChartLimitLine alloc]initWithLimit:90 label:@"优秀"];
-    UIFont *font=[UIFont systemFontOfSize:16];
+    UIFont *font=[UIFont systemFontOfSize:kLimitLineFontSize];
+    UIColor *fontColor=[UIColor colorFromHexString:kBarBlackStr];
     [passLine setValueFont:font];
+    [passLine setValueTextColor:fontColor];
     [excellentLine setValueFont:font];
+    [excellentLine setValueTextColor:fontColor];
     excellentLine.lineColor=kNiceGreen;
     [leftAxis addLimitLine:passLine];
     [leftAxis addLimitLine:excellentLine];
@@ -176,3 +184,4 @@
     
 }
 @end
+

@@ -9,36 +9,58 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="StudentInformationCell">
-            <rect key="frame" x="0.0" y="0.0" width="527" height="44"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glw-At-3Tm">
-                    <rect key="frame" x="8" y="11" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glw-At-3Tm">
+                    <rect key="frame" x="20" y="22" width="70" height="0.0"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="KK9-4h-eBI"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWq-Wa-zzb">
-                    <rect key="frame" x="58" y="11" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqQ-nW-g6q">
+                    <rect key="frame" x="98" y="22" width="14" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="hWq-Wa-zzb">
+                    <rect key="frame" x="120" y="22" width="200" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="glw-At-3Tm" firstAttribute="baseline" secondItem="hWq-Wa-zzb" secondAttribute="baseline" id="BHI-HX-P4Z"/>
-                <constraint firstItem="glw-At-3Tm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="KYx-gN-nhJ"/>
+                <constraint firstItem="mqQ-nW-g6q" firstAttribute="top" secondItem="glw-At-3Tm" secondAttribute="top" id="BTl-2K-Y8h"/>
+                <constraint firstItem="glw-At-3Tm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="12" id="KYx-gN-nhJ"/>
+                <constraint firstAttribute="trailing" secondItem="hWq-Wa-zzb" secondAttribute="trailing" id="Ntc-jD-DYU"/>
+                <constraint firstItem="hWq-Wa-zzb" firstAttribute="top" secondItem="mqQ-nW-g6q" secondAttribute="top" id="Sc8-1q-S7G"/>
+                <constraint firstItem="mqQ-nW-g6q" firstAttribute="leading" secondItem="glw-At-3Tm" secondAttribute="trailing" constant="8" id="XW1-Iw-0Pa"/>
+                <constraint firstAttribute="trailing" secondItem="hWq-Wa-zzb" secondAttribute="trailing" constant="200" id="mMa-bQ-K2y"/>
                 <constraint firstItem="glw-At-3Tm" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ovO-RW-Lhs"/>
-                <constraint firstItem="hWq-Wa-zzb" firstAttribute="leading" secondItem="glw-At-3Tm" secondAttribute="trailing" constant="8" symbolic="YES" id="p8l-K5-dU8"/>
+                <constraint firstItem="hWq-Wa-zzb" firstAttribute="leading" secondItem="glw-At-3Tm" secondAttribute="trailing" constant="20" id="p8l-K5-dU8"/>
+                <constraint firstItem="hWq-Wa-zzb" firstAttribute="leading" secondItem="mqQ-nW-g6q" secondAttribute="trailing" constant="8" id="umL-eJ-JOl"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="BHI-HX-P4Z"/>
+                    <exclude reference="mMa-bQ-K2y"/>
+                    <exclude reference="p8l-K5-dU8"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="key" destination="glw-At-3Tm" id="ARY-iR-S7j"/>
                 <outlet property="value" destination="hWq-Wa-zzb" id="341-5f-1A8"/>
             </connections>
-            <point key="canvasLocation" x="381.5" y="204"/>
+            <point key="canvasLocation" x="278" y="204"/>
         </view>
     </objects>
 </document>

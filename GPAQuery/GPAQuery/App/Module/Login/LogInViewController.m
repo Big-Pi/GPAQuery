@@ -30,10 +30,16 @@
 
 #pragma mark - Private
 - (IBAction)logIn:(UIButton *)sender {
+    
     self.student.userName=self.userNameTextField.text;
     self.student.pwd=self.pwdTextField.text;
     self.student.checkCode=self.checkCodeTextField.text;
     self.student.studentID=self.student.userName;
+    
+    if(self.student.checkCode==nil || self.student.checkCode.length!=4){
+        [MBProgressHUD showMsg:@"请输入正确的验证码" forSeconds:1.0];
+        return;
+    }
     self.checkCodeTextField.text=@"";
     [SpinnerHud showInView:self.view];
     //

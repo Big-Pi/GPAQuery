@@ -29,7 +29,7 @@
     self.slideTab.tabbarTrackColor = [UIColor clearColor];
     self.slideTab.backgroundColor=kGlobalMeat;
     self.slideTab.tabbarBottomSpacing = 3.0;
-    self.slideTab.tabbarHeight=50;
+    self.slideTab.tabbarHeight=30;
     
     self.slideTab.baseViewController=self;
     DLTabedbarItem *item1=[DLTabedbarItem itemWithTitle:@"成绩图表" image:nil selectedImage:nil];

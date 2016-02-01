@@ -20,6 +20,7 @@
 #define kWihteBG [UIColor colorFromHexString:@"FBFAF7"];
 
 extern NSString *const kNiceYellowStr;
+extern NSString *const kBarBlackStr;
 extern NSString *const kGlobalMeatStr;
 extern NSString *const kNiceGreenStr;
 extern NSString *const kNiceOrangeStr;

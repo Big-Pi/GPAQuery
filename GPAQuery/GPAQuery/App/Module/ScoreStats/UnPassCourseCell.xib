@@ -58,7 +58,7 @@
                 <outlet property="courseTypeLabel" destination="Xon-6V-iK1" id="sS7-50-3hT"/>
                 <outlet property="creditLabel" destination="8xO-fO-lnA" id="zBe-3H-3NK"/>
             </connections>
-            <point key="canvasLocation" x="441" y="200"/>
+            <point key="canvasLocation" x="58" y="203"/>
         </view>
     </objects>
 </document>

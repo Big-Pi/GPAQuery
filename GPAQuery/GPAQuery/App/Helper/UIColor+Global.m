@@ -14,6 +14,7 @@ NSString *const kNiceOrangeStr=@"F34600";
 NSString *const kNiceGreenStr=@"4DA885";
 NSString *const kNiceGreenLightStr=@"BDD6A9";
 NSString *const kGlobalMeatStr=@"F5F0E9";
+NSString *const kBarBlackStr=@"333333";
 
 @implementation UIColor (Global)
 - (instancetype)init

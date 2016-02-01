@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,36 +15,52 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="总学分：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIE-wh-lJZ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总学分：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIE-wh-lJZ">
                         <rect key="frame" x="8" y="11" width="68" height="21"/>
+                        <color key="backgroundColor" red="0.95294117649999999" green="0.92549019610000005" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.21568627450980393" green="0.59607843137254901" blue="0.44705882352941179" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="666" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Id7-Db-67M">
-                        <rect key="frame" x="84" y="11" width="50" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="666" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Id7-Db-67M">
+                        <rect key="frame" x="84" y="11" width="32" height="21"/>
+                        <color key="backgroundColor" red="0.95294117649999999" green="0.92549019610000005" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.21568627450980393" green="0.59607843137254901" blue="0.44705882352941179" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="平均绩点：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDh-Xh-rvG">
-                        <rect key="frame" x="142" y="11" width="85" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均绩点：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDh-Xh-rvG">
+                        <rect key="frame" x="187" y="11" width="85" height="21"/>
+                        <color key="backgroundColor" red="0.95294117649999999" green="0.92549019610000005" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.21568627450980393" green="0.59607843137254901" blue="0.44705882352941179" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1.60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyK-5v-Yd2">
-                        <rect key="frame" x="235" y="11" width="32" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyK-5v-Yd2">
+                        <rect key="frame" x="280" y="11" width="32" height="21"/>
+                        <color key="backgroundColor" red="0.95294117649999999" green="0.92549019610000005" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.21568627450980393" green="0.59607843137254901" blue="0.44705882352941179" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.95294117647058818" green="0.92549019607843142" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="UyK-5v-Yd2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="DBa-YT-d3Y"/>
+                    <constraint firstItem="Id7-Db-67M" firstAttribute="top" secondItem="sIE-wh-lJZ" secondAttribute="top" id="F3q-5X-B7n"/>
+                    <constraint firstItem="UyK-5v-Yd2" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="GHH-gE-zQL"/>
+                    <constraint firstItem="aDh-Xh-rvG" firstAttribute="top" secondItem="UyK-5v-Yd2" secondAttribute="top" id="HIz-Gk-KoN"/>
+                    <constraint firstItem="sIE-wh-lJZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Hum-MO-mOE"/>
+                    <constraint firstItem="sIE-wh-lJZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OuX-Os-sDd"/>
+                    <constraint firstItem="Id7-Db-67M" firstAttribute="leading" secondItem="sIE-wh-lJZ" secondAttribute="trailing" constant="8" id="S8S-ZN-10c"/>
+                    <constraint firstItem="UyK-5v-Yd2" firstAttribute="leading" secondItem="aDh-Xh-rvG" secondAttribute="trailing" constant="8" id="xei-lH-Qgo"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="GPALabel" destination="UyK-5v-Yd2" id="Nkc-2R-taM"/>
                 <outlet property="creditSumLabel" destination="Id7-Db-67M" id="Qia-No-FFS"/>
             </connections>
+            <point key="canvasLocation" x="190" y="378"/>
         </tableViewCell>
     </objects>
 </document>
