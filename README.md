@@ -1,2 +1,7 @@
 # GPAQuery
-Grade Point Average Query for SYNU
+
+#### 沈阳师范大学绩点小助手
+
+
+
+![](./demo.GIF)

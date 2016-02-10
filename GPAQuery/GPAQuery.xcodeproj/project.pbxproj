@@ -1073,8 +1073,8 @@
 			baseConfigurationReference = 37981587266623B878B167FE /* Pods-GPAQuery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GPAQuery/App/Vendor/umeng_ios_social_sdk_4_4_arm64/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -1117,8 +1117,8 @@
 			baseConfigurationReference = FBA7954FDECAAA9C48A191B4 /* Pods-GPAQuery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GPAQuery/App/Vendor/umeng_ios_social_sdk_4_4_arm64/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
