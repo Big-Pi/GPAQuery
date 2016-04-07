@@ -32,6 +32,7 @@
 
 -(void)initPrivate{
     self.content=[[[NSBundle mainBundle]loadNibNamed:@"StudentHeader" owner:self options:nil]lastObject];
+    self.content.backgroundColor=kWihteBG;
     [self addSubview:self.content];
 //    CGFloat radius= MIN(self.avatarImageView.bounds.size.height, self.avatarImageView.bounds.size.width);
 //    self.avatarImageView.layer.cornerRadius=radius/2;

@@ -7,6 +7,7 @@
 //
 
 #import "StudentInformationCell.h"
+#import "UIColor+Global.h"
 
 
 @interface StudentInformationCell ()
@@ -15,6 +16,10 @@
 @end
 
 @implementation StudentInformationCell
+
+-(void)awakeFromNib{
+    self.backgroundColor=kWihteBG;
+}
 
 -(void)configCellWithDataDict:(NSDictionary*)dict{
     self.key.text=dict.allKeys[0];

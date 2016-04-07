@@ -29,7 +29,12 @@
     if(level>10){
         level=10;
     }
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wformat"
     NSString *levelKey=[NSString stringWithFormat:@"%d",level];
+#pragma clang diagnostic pop
+    
     return [[self definitions]valueForKey:levelKey];
 }
 

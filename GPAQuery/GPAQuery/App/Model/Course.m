@@ -111,7 +111,7 @@ NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
 
 -(void)parseCourseFromNode:(ONOXMLElement*)element{
     NSArray *children=element.children;
-    if(children.count==15){
+    if(children.count>=15){
         self.SYNUCourseType=SYNUCourseTypeHistoryGPACalc;
         self.year=((ONOXMLElement*)children[0]).stringValue;
         self.term=((ONOXMLElement*)children[1]).stringValue;
@@ -121,13 +121,21 @@ NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
         self.courseSubType=((ONOXMLElement*)children[5]).stringValue;
         self.credit=((ONOXMLElement*)children[6]).stringValue;
         self.GPA=((ONOXMLElement*)children[7]).stringValue;
-        self.score=((ONOXMLElement*)children[8]).stringValue;
-        self.tag=((ONOXMLElement*)children[9]).stringValue;
-        self.scoreMakeUp=((ONOXMLElement*)children[10]).stringValue;
-        self.scoreRetake=((ONOXMLElement*)children[11]).stringValue;
-        self.institute=((ONOXMLElement*)children[12]).stringValue;
-        self.mark=((ONOXMLElement*)children[13]).stringValue;
-        self.retakeTag=((ONOXMLElement*)children[14]).stringValue;
+//        self.score=((ONOXMLElement*)children[8]).stringValue;
+//        self.tag=((ONOXMLElement*)children[9]).stringValue;
+//        self.scoreMakeUp=((ONOXMLElement*)children[10]).stringValue;
+//        self.scoreRetake=((ONOXMLElement*)children[11]).stringValue;
+//        self.institute=((ONOXMLElement*)children[12]).stringValue;
+//        self.mark=((ONOXMLElement*)children[13]).stringValue;
+//        self.retakeTag=((ONOXMLElement*)children[14]).stringValue;
+        self.score=((ONOXMLElement*)children[12]).stringValue;
+        self.tag=((ONOXMLElement*)children[13]).stringValue;
+        self.scoreMakeUp=((ONOXMLElement*)children[14]).stringValue;
+        self.scoreRetake=((ONOXMLElement*)children[15]).stringValue;
+        self.institute=((ONOXMLElement*)children[16]).stringValue;
+        self.mark=((ONOXMLElement*)children[17]).stringValue;
+        self.retakeTag=((ONOXMLElement*)children[18]).stringValue;
+
     }else if(children.count==6){
         self.SYNUCourseType=SYNUCourseTypeUnPass;
         self.courseCode=((ONOXMLElement*)children[0]).stringValue;

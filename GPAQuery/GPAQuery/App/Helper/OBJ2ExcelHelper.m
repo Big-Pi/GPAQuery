@@ -45,6 +45,10 @@
     [workSheet setCellAtRow:0 column:13 toString:@"备注"];
     [workSheet setCellAtRow:0 column:14 toString:@"重修标记"];
     //
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
+    
+
     for(NSInteger idx=1;idx<count;idx++){
         Course *c=array[idx];
         [workSheet setCellAtRow:idx column:0 toString:c.year];
@@ -65,6 +69,7 @@
         [workSheet setCellAtRow:idx column:13 toString:c.mark];
         [workSheet setCellAtRow:idx column:14 toString:c.retakeTag];
     }
+#pragma clang diagnostic pop    
     int fud = [workBook writeToFile:filePath];
     
     NSLog(@"OK - bye! fud=%d", fud);

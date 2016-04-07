@@ -15,6 +15,7 @@ pod 'JXLS'
 pod 'Ono'
 pod 'REMenu'
 pod 'IQKeyboardManager'
+pod 'FMDB'
 end
 
 target 'GPAQueryTests' do

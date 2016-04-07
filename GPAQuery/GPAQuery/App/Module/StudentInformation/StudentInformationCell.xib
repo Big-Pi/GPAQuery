@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -33,18 +33,29 @@
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKk-PI-DRx">
+                    <rect key="frame" x="0.0" y="43" width="320" height="1"/>
+                    <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="KYW-Wd-kQE"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="XKk-PI-DRx" secondAttribute="bottom" id="3pC-Cv-RUb"/>
                 <constraint firstItem="glw-At-3Tm" firstAttribute="baseline" secondItem="hWq-Wa-zzb" secondAttribute="baseline" id="BHI-HX-P4Z"/>
                 <constraint firstItem="mqQ-nW-g6q" firstAttribute="top" secondItem="glw-At-3Tm" secondAttribute="top" id="BTl-2K-Y8h"/>
+                <constraint firstItem="XKk-PI-DRx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="BwX-Vo-pI6"/>
                 <constraint firstItem="glw-At-3Tm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="12" id="KYx-gN-nhJ"/>
                 <constraint firstAttribute="trailing" secondItem="hWq-Wa-zzb" secondAttribute="trailing" id="Ntc-jD-DYU"/>
                 <constraint firstItem="hWq-Wa-zzb" firstAttribute="top" secondItem="mqQ-nW-g6q" secondAttribute="top" id="Sc8-1q-S7G"/>
                 <constraint firstItem="mqQ-nW-g6q" firstAttribute="leading" secondItem="glw-At-3Tm" secondAttribute="trailing" constant="8" id="XW1-Iw-0Pa"/>
+                <constraint firstItem="XKk-PI-DRx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gaz-RA-oSR"/>
                 <constraint firstAttribute="trailing" secondItem="hWq-Wa-zzb" secondAttribute="trailing" constant="200" id="mMa-bQ-K2y"/>
                 <constraint firstItem="glw-At-3Tm" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ovO-RW-Lhs"/>
                 <constraint firstItem="hWq-Wa-zzb" firstAttribute="leading" secondItem="glw-At-3Tm" secondAttribute="trailing" constant="20" id="p8l-K5-dU8"/>
+                <constraint firstAttribute="trailing" secondItem="XKk-PI-DRx" secondAttribute="trailing" id="s8h-c1-ACd"/>
                 <constraint firstItem="hWq-Wa-zzb" firstAttribute="leading" secondItem="mqQ-nW-g6q" secondAttribute="trailing" constant="8" id="umL-eJ-JOl"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -52,6 +63,7 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="BHI-HX-P4Z"/>
+                    <exclude reference="BwX-Vo-pI6"/>
                     <exclude reference="mMa-bQ-K2y"/>
                     <exclude reference="p8l-K5-dU8"/>
                 </mask>

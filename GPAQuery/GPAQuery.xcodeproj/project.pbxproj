@@ -66,6 +66,7 @@
 		0EB458971C2274F20040AE70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB458951C2274F20040AE70 /* LaunchScreen.storyboard */; };
 		0EB458A21C2274F20040AE70 /* GPAQueryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB458A11C2274F20040AE70 /* GPAQueryTests.m */; };
 		0EB458AD1C2274F20040AE70 /* GPAQueryUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB458AC1C2274F20040AE70 /* GPAQueryUITests.m */; };
+		0ED18C231CB27504001DF77B /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED18C221CB27504001DF77B /* DBManager.m */; };
 		0ED66D341C5096A0002DD95F /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED66D331C5096A0002DD95F /* Helper.m */; };
 		0EE203951C576CF0000999AF /* OBJ2ExcelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE203941C576CF0000999AF /* OBJ2ExcelHelper.m */; };
 		0EE2948C1C5909750001828C /* CourseTableFooterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2948A1C5909750001828C /* CourseTableFooterCell.m */; };
@@ -226,6 +227,8 @@
 		0EB458A81C2274F20040AE70 /* GPAQueryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPAQueryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB458AC1C2274F20040AE70 /* GPAQueryUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPAQueryUITests.m; sourceTree = "<group>"; };
 		0EB458AE1C2274F20040AE70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ED18C211CB27504001DF77B /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		0ED18C221CB27504001DF77B /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		0ED66D321C5096A0002DD95F /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		0ED66D331C5096A0002DD95F /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		0EE203931C576CF0000999AF /* OBJ2ExcelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBJ2ExcelHelper.h; sourceTree = "<group>"; };
@@ -519,6 +522,7 @@
 		0EACAB951C2DAA1800EF7261 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				0ED18C201CB274E6001DF77B /* DB */,
 				0E2115EE1C588DBA00AF148D /* Vendor */,
 				0E68863F1C4A807E00455868 /* Application */,
 				0EACAB961C2DAA1800EF7261 /* Helper */,
@@ -628,6 +632,15 @@
 				0EB458AE1C2274F20040AE70 /* Info.plist */,
 			);
 			path = GPAQueryUITests;
+			sourceTree = "<group>";
+		};
+		0ED18C201CB274E6001DF77B /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				0ED18C211CB27504001DF77B /* DBManager.h */,
+				0ED18C221CB27504001DF77B /* DBManager.m */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 		0EEA094B1C5657A0009E1FCB /* Resource */ = {
@@ -903,6 +916,7 @@
 				0EACAB9B1C2DAA6600EF7261 /* Student.m in Sources */,
 				0E7BDE9D1C5FA88500F37B6F /* NSObject+Unicode.m in Sources */,
 				0E2116721C58C27900AF148D /* UnPassTableController.m in Sources */,
+				0ED18C231CB27504001DF77B /* DBManager.m in Sources */,
 				0EEA09121C56353B009E1FCB /* BaseViewController.m in Sources */,
 				0EE203951C576CF0000999AF /* OBJ2ExcelHelper.m in Sources */,
 				0E68864E1C4A868800455868 /* SYNUAPI.m in Sources */,
