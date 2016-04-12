@@ -14,5 +14,6 @@
 +(NSStringEncoding)gbkEncoding;
 +(NSString*)removeChinese:(NSString*)str;
 +(BOOL)isChinese:(NSString*)str;
++(void)sort:(NSMutableArray*)array;
 +(ONOXMLDocument*)docFormData:(NSData*)data;
 @end

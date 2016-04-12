@@ -33,6 +33,21 @@ static NSRegularExpression *reg;
     return matchs.count>0;
 }
 
++(void)sort:(NSMutableArray*)array{
+    int i,y,min;
+    for(i=0;i<[array count];i++){
+        min=i;
+        for(y=i+1;y<[array count];y++){
+            if([[array objectAtIndex:min]intValue]>[[array objectAtIndex:y]intValue]){
+                min=y;
+            }
+        }
+        if(min!=i){
+            [array exchangeObjectAtIndex:i withObjectAtIndex:min];
+        }
+    }
+}
+
 +(ONOXMLDocument*)docFormData:(NSData*)data{
     NSString *str= [[NSString alloc]initWithData:data encoding:[Helper gbkEncoding]];
     str=[str stringByReplacingOccurrencesOfString:@"gb2312" withString:@"UTF-8"];

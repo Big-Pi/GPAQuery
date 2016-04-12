@@ -20,7 +20,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     NSLog(@"%@",@"学生信息 Load");
-    
+    self.tableView.backgroundColor=kWihteBG;
     [self.tableView registerNib:[UINib nibWithNibName:@"StudentInformationCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
     
     UIView *header= [[StudentHeader alloc]initWithStudent:self.student];
@@ -32,7 +32,6 @@
     }else{
         [self reloadData:self.student];
     }
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{

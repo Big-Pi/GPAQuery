@@ -158,7 +158,7 @@ NSInteger const kLimitLineFontSize=12;
     self.barChart.xAxis.drawGridLinesEnabled=NO;
     //
     ChartYAxis *leftAxis= [self.barChart getAxis:AxisDependencyLeft];
-    leftAxis.axisMaximum=100;
+    leftAxis.axisMaxValue=100;
     leftAxis.startAtZeroEnabled = YES;
     //
     ChartYAxis *rightAxis = [self.barChart getAxis:AxisDependencyRight];
