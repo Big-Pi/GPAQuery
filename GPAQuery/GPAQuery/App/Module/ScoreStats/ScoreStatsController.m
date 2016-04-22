@@ -9,11 +9,11 @@
 #import "ScoreStatsController.h"
 #import "ScoreStats.h"
 #import "Student+Definition.h"
+#import "GPAQuery-Swift.h"
 
 NSInteger const kDescriptionFontSize=14;
 NSInteger const kPieFontSize=14;
 NSInteger const kLegendFontSize=12;
-@import Charts;
 
 @interface ScoreStatsController ()
 @property (weak, nonatomic) IBOutlet PieChartView *pieChart;

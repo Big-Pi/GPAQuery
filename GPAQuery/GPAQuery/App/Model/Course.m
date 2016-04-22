@@ -45,8 +45,9 @@ NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
  *
  *  @return
  */
+
 +(NSArray *)coursesFromHtmlData:(NSData *)data{
-    
+    //找到成绩表格头部
     NSMutableArray *array=[NSMutableArray array];
     ONOXMLDocument *doc=[Helper docFormData:data];
     ONOXMLElement *tableHead= [doc firstChildWithXPath:kCourseTableHeadPath];
@@ -84,17 +85,17 @@ NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
 
 -(void)setScore:(NSString *)score{
     if([Helper isChinese:score]){
-        if ([score containsString:@"不"]) {
+        if ([score rangeOfString:@"不"].location!=NSNotFound) {
             score=[NSString stringWithFormat:@"%d",0];
-        }else if([score containsString:@"及格"]){
+        }else if([score rangeOfString:@"及格"].location!=NSNotFound){
             score=[NSString stringWithFormat:@"%d",65];
-        }else if([score containsString:@"合格"]){
+        }else if([score rangeOfString:@"合格"].location!=NSNotFound){
             score=[NSString stringWithFormat:@"%d",65];
-        }else if ([score containsString:@"中等"]){
+        }else if ([score rangeOfString:@"中等"].location!=NSNotFound){
             score=[NSString stringWithFormat:@"%d",75];
-        }else if ([score containsString:@"良好"]){
+        }else if ([score rangeOfString:@"良好"].location!=NSNotFound){
             score=[NSString stringWithFormat:@"%d",85];
-        }else if ([score containsString:@"优秀"]){
+        }else if ([score rangeOfString:@"优秀"].location!=NSNotFound){
             score=[NSString stringWithFormat:@"%d",95];
         }
     }
@@ -104,7 +105,7 @@ NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
 -(void)setCourseType:(NSString *)courseType{
     _courseType=courseType;
     //通识必修 学科必修 公共选修
-    if([courseType containsString:@"公共选修"]){
+    if([courseType rangeOfString:@"公共选修"].location!=NSNotFound){
         self.SYNUCourseType=SYNUCourseTypeHistory;
     }
 }

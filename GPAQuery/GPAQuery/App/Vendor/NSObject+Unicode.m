@@ -9,6 +9,7 @@
 #import "NSObject+Unicode.h"
 #import <objc/runtime.h>
 
+
 @implementation NSObject (Unicode)
 #if DEBUG
 +(void)load{

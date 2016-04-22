@@ -1,6 +1,0 @@
-framework module JXLS {
-  umbrella header "JXLS-umbrella.h"
-
-  export *
-  module * { export * }
-}

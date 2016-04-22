@@ -55,11 +55,12 @@
     NSString *str=[[NSString alloc]initWithData:responseData encoding:[Helper gbkEncoding]];
 //    NSLog(@"%@",str);
     NSString *errorMsg=nil;
-    if([str containsString:@"验证码不正确"]){
+    
+    if([str rangeOfString:@"验证码不正确"].location != NSNotFound){
         errorMsg=@"验证码不正确";
-    }else if([str containsString:@"密码错误"]){
+    }else if([str rangeOfString:@"密码错误"].location != NSNotFound){
         errorMsg=@"密码错误";
-    }else if([str containsString:@"用户名不存在或未按照要求参加教学活动"]){
+    }else if([str rangeOfString:@"用户名不存在或未按照要求参加教学活动"].location != NSNotFound){
         errorMsg=@"用户名不存在或未按照要求参加教学活动";
     }
     return errorMsg;

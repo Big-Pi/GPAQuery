@@ -82,30 +82,3 @@ strip_invalid_archs() {
   fi
 }
 
-
-if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-GPAQuery/AFNetworking.framework"
-  install_framework "Pods-GPAQuery/Charts.framework"
-  install_framework "Pods-GPAQuery/DGActivityIndicatorView.framework"
-  install_framework "Pods-GPAQuery/FMDB.framework"
-  install_framework "Pods-GPAQuery/IQKeyboardManager.framework"
-  install_framework "Pods-GPAQuery/JXLS.framework"
-  install_framework "Pods-GPAQuery/MBProgressHUD.framework"
-  install_framework "Pods-GPAQuery/Ono.framework"
-  install_framework "Pods-GPAQuery/PureLayout.framework"
-  install_framework "Pods-GPAQuery/REMenu.framework"
-  install_framework "Pods-GPAQuery/VGParallaxHeader.framework"
-fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-GPAQuery/AFNetworking.framework"
-  install_framework "Pods-GPAQuery/Charts.framework"
-  install_framework "Pods-GPAQuery/DGActivityIndicatorView.framework"
-  install_framework "Pods-GPAQuery/FMDB.framework"
-  install_framework "Pods-GPAQuery/IQKeyboardManager.framework"
-  install_framework "Pods-GPAQuery/JXLS.framework"
-  install_framework "Pods-GPAQuery/MBProgressHUD.framework"
-  install_framework "Pods-GPAQuery/Ono.framework"
-  install_framework "Pods-GPAQuery/PureLayout.framework"
-  install_framework "Pods-GPAQuery/REMenu.framework"
-  install_framework "Pods-GPAQuery/VGParallaxHeader.framework"
-fi

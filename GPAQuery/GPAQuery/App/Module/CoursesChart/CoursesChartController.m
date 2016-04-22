@@ -9,12 +9,8 @@
 #import "CoursesChartController.h"
 #import "Course.h"
 #import "Student+Definition.h"
+#import "GPAQuery-Swift.h"
 
-NSInteger const kTopValueFontSize=11;
-NSInteger const kXValueFontSize=12;
-NSInteger const kLimitLineFontSize=12;
-
-@import Charts;
 
 @interface CoursesChartController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -147,12 +143,12 @@ NSInteger const kLimitLineFontSize=12;
     set.drawValuesEnabled=YES;
     set.colors=colors;
     BarChartData *data=[[BarChartData alloc]initWithXVals:xValues dataSet:set];
-    [data setValueFont:[UIFont systemFontOfSize:kTopValueFontSize weight:UIFontWeightThin]];
+    [data setValueFont:[UIFont systemFontOfSize:11]];
     
     //自定义BarChart
     self.barChart.userInteractionEnabled=NO;
     self.barChart.xAxis.labelPosition=XAxisLabelPositionBottomInside;
-    self.barChart.xAxis.labelFont=[UIFont systemFontOfSize:kXValueFontSize];
+    self.barChart.xAxis.labelFont=[UIFont systemFontOfSize:12];
     self.barChart.data=data;
     self.barChart.xAxis.drawAxisLineEnabled=NO;
     self.barChart.xAxis.drawGridLinesEnabled=NO;
@@ -169,7 +165,7 @@ NSInteger const kLimitLineFontSize=12;
     // 参考线
     ChartLimitLine *passLine=[[ChartLimitLine alloc]initWithLimit:60 label:@"及格"];
     ChartLimitLine *excellentLine=[[ChartLimitLine alloc]initWithLimit:90 label:@"优秀"];
-    UIFont *font=[UIFont systemFontOfSize:kLimitLineFontSize];
+    UIFont *font=[UIFont systemFontOfSize:12];
     UIColor *fontColor=[UIColor colorFromHexString:kBarBlackStr];
     [passLine setValueFont:font];
     [passLine setValueTextColor:fontColor];
