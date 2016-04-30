@@ -14,6 +14,12 @@
 +(NSStringEncoding)gbkEncoding;
 +(NSString*)removeChinese:(NSString*)str;
 +(BOOL)isChinese:(NSString*)str;
-+(void)sort:(NSMutableArray*)array;
++(NSArray*)sort:(NSArray*)array;
 +(ONOXMLDocument*)docFormData:(NSData*)data;
+
++(NSString*)AppHomeDirectory;
+
++(NSString*)AppTempDirectory;
+
++(NSString*)AppDocumentDirectory;
 @end

@@ -33,19 +33,34 @@ static NSRegularExpression *reg;
     return matchs.count>0;
 }
 
-+(void)sort:(NSMutableArray*)array{
++(NSArray*)sort:(NSArray*)array{
+    NSMutableArray *tmpArray=[NSMutableArray arrayWithArray:array];
+    
     int i,y,min;
-    for(i=0;i<[array count];i++){
+    for(i=0;i<[tmpArray count];i++){
         min=i;
-        for(y=i+1;y<[array count];y++){
-            if([[array objectAtIndex:min]intValue]>[[array objectAtIndex:y]intValue]){
+        for(y=i+1;y<[tmpArray count];y++){
+            if([[tmpArray objectAtIndex:min]intValue]>[[tmpArray objectAtIndex:y]intValue]){
                 min=y;
             }
         }
         if(min!=i){
-            [array exchangeObjectAtIndex:i withObjectAtIndex:min];
+            [tmpArray exchangeObjectAtIndex:i withObjectAtIndex:min];
         }
     }
+    return tmpArray;
+}
+
++(NSString*)AppHomeDirectory{
+    return NSHomeDirectory();
+}
+
++(NSString*)AppTempDirectory{
+    return NSHomeDirectory();
+}
+
++(NSString*)AppDocumentDirectory{
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 }
 
 +(ONOXMLDocument*)docFormData:(NSData*)data{

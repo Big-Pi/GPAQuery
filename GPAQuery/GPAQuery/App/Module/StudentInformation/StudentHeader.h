@@ -10,4 +10,5 @@
 @class Student;
 @interface StudentHeader : UIView
 -(instancetype)initWithStudent:(Student*)student;
+-(void)configWithStudent:(Student*)student;
 @end

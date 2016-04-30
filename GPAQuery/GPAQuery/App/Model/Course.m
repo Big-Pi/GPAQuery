@@ -13,26 +13,6 @@
 NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
 
 @interface Course ()
-@property (assign,nonatomic,readwrite) SYNUCourseType SYNUCourseType;
-//
-@property (copy,nonatomic,readwrite) NSString *year;//学年
-@property (copy,nonatomic,readwrite) NSString *term;//学期
-@property (copy,nonatomic,readwrite) NSString *courseCode;//课程代码
-@property (copy,nonatomic,readwrite) NSString *courseName;//课程名称
-@property (copy,nonatomic,readwrite) NSString *courseType;//课程性质
-@property (copy,nonatomic,readwrite) NSString *courseSubType;//课程归属
-@property (copy,nonatomic,readwrite) NSString *credit;//学分
-@property (copy,nonatomic,readwrite) NSString *GPA;//绩点
-@property (copy,nonatomic,readwrite) NSString *score;//成绩
-@property (copy,nonatomic,readwrite) NSString *tag;//辅修标记
-@property (copy,nonatomic,readwrite) NSString *scoreMakeUp;//补考成绩
-@property (copy,nonatomic,readwrite) NSString *scoreRetake;//重修成绩
-@property (copy,nonatomic,readwrite) NSString *institute;//开课学院
-@property (copy,nonatomic,readwrite) NSString *mark;//备注
-@property (copy,nonatomic,readwrite) NSString *retakeTag;//重修标记
-//
-@property (copy,nonatomic,readwrite) NSString *bestScore;//最高成绩
-
 @end
 
 @implementation Course
@@ -46,7 +26,7 @@ NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
  *  @return
  */
 
-+(NSArray *)coursesFromHtmlData:(NSData *)data{
++(NSArray *)coursesFromHtmlData:(NSData *)data studentID:(NSString *)studentID{
     //找到成绩表格头部
     NSMutableArray *array=[NSMutableArray array];
     ONOXMLDocument *doc=[Helper docFormData:data];
@@ -55,6 +35,7 @@ NSString *const kCourseTableHeadPath=@"//*[@class='datelisthead']";
     ONOXMLElement *courseElement;
     for (courseElement=[tableHead nextSibling]; courseElement!=nil; courseElement=[courseElement nextSibling]) {
         Course *course=[[Course alloc]initWithNode:courseElement];
+        course.studentID=studentID;
         [array addObject:course];
     }
     [array removeLastObject];

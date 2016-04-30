@@ -11,6 +11,7 @@
 #import "OBJ2ExcelHelper.h"
 #import "CourseTableFooterCell.h"
 #import "CourseDetailTableController.h"
+#import "DBManager.h"
 
 @interface CoursesTableController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -29,7 +30,7 @@
     if(self.student.historyCourses && self.student.historyCourses.count>0){
         [self updateUI];
     }else{
-        [self reloadData:self.student];
+        [self reloadData:self.student ignoreCache:NO];
     }
 }
 
@@ -39,8 +40,19 @@
 }
 
 #pragma mark - Private
--(void)reloadData:(Student*)student{
+-(void)reloadData:(Student*)student ignoreCache:(BOOL)ignoreCache{
     [SpinnerHud showInView:self.view];
+    //先从缓存数据库中加载数据
+    if(!ignoreCache){
+        NSArray *courses=[[DBManager sharedDBManager]queryCoursesForStudent:student];
+        if(courses.count>1){//如果有缓存数据就显示缓存
+            student.historyCourses=courses;
+            [SpinnerHud hide];
+            [self updateUI];
+            return;
+        }
+    }
+    //联网加载数据
     [self.netUtil getAllCourses:self.student completionHandler:^{
         [SpinnerHud hide];
         [self updateUI];
@@ -62,7 +74,7 @@
                                                           image:nil
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
-                                                             [self reloadData:self.student];
+                                                             [self reloadData:self.student ignoreCache:YES];
                                                          }];
     //显示哪个 item
     REMenuItem *showCoursesItem ;

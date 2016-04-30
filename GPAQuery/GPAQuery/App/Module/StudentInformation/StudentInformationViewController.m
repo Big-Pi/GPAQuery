@@ -9,11 +9,13 @@
 #import "StudentInformationViewController.h"
 #import "StudentHeader.h"
 #import "StudentInformationCell.h"
+#import "DBManager.h"
 #import <VGParallaxHeader/UIScrollView+VGParallaxHeader.h>
 
 @interface StudentInformationViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic) NSArray *dataArray;
+@property (strong,nonatomic) StudentHeader  *header;
 @end
 
 @implementation StudentInformationViewController
@@ -23,14 +25,14 @@
     self.tableView.backgroundColor=kWihteBG;
     [self.tableView registerNib:[UINib nibWithNibName:@"StudentInformationCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
     
-    UIView *header= [[StudentHeader alloc]initWithStudent:self.student];
-    [self.tableView setParallaxHeaderView:header mode:VGParallaxHeaderModeFill height:200];
+    self.header= [[StudentHeader alloc]initWithStudent:self.student];
+    [self.tableView setParallaxHeaderView:self.header mode:VGParallaxHeaderModeFill height:200];
     
     if(self.student.grade && self.student.major){
         self.dataArray=[self buildDataFromStudent:self.student];
         [self.tableView reloadData];
     }else{
-        [self reloadData:self.student];
+        [self reloadData:self.student ignoreCache:NO];
     }
 }
 
@@ -40,11 +42,24 @@
 }
 
 #pragma mark - Private
--(void)reloadData:(Student*)student{
+-(void)reloadData:(Student*)student ignoreCache:(BOOL)ignoreCache{
     [SpinnerHud showInView:self.view];
+    //缓存数据库中加载数据
+    if(!ignoreCache){
+        [[DBManager sharedDBManager]queryStudentByStudentID:student];
+        if(student.grade!=nil){//有数据就显示,
+            [SpinnerHud hide];
+            self.dataArray=[self buildDataFromStudent:self.student];
+            [self.header configWithStudent:self.student];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+            return;
+        }
+    }
+    //没有就从网络加载数据
     [self.netUtil getStudentInformation:self.student completionHandler:^{
         [SpinnerHud hide];
         self.dataArray=[self buildDataFromStudent:self.student];
+        [self.header configWithStudent:self.student];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
     }];
 }
@@ -55,7 +70,7 @@
                                                           image:nil
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
-                                                             [self reloadData:self.student];
+                                                             [self reloadData:self.student ignoreCache:YES];
                                                          }];
     self.menu= [[REMenu alloc]initWithItems:@[refreshItem]];
 }

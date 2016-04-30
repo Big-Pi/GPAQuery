@@ -41,7 +41,7 @@ NSString *const kGrade=@"//*[@id='lbl_dqszj']";
 #pragma mark - Private
 -(NSArray *)validateCourse{
     NSMutableArray *validateCourses=[NSMutableArray array];
-    for (Course *c in self.historyCourses) {
+    for (Course *c in _historyCourses) {
         if(c.SYNUCourseType==SYNUCourseTypeHistory){
             continue;
         }
@@ -85,107 +85,6 @@ NSString *const kGrade=@"//*[@id='lbl_dqszj']";
     self.creditSum=[NSString stringWithFormat:@"%.1f",creditSum];
     self.GPA=[NSString stringWithFormat:@"%.2f",creditMutiplyGPASum/creditSum];
 }
-
-#pragma mark -
-
-#if 0
-/**
- *  获取验证码图片
- *
- *  @param completionHandler
- */
--(void)getVerifyImageWithCompletionHandler:(void (^)(UIImage *verifyImg))completionHandler{
-    [self.net get:[SYNUAPI generateMainPageUrl] completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        self.userSessionID= [self parseUserIDFromResponse:response];
-        [self verifyImgWithUserSessionID:self.userSessionID completionHandler:completionHandler];
-    }];
-}
-
-/**
- *  登录
- *
- *  @param userName
- *  @param pwd
- *  @param checkCode
- */
--(void)logInWithUserName:(NSString*)userName pwd:(NSString*)pwd checkCode:(NSString*)checkCode{
-    NSString *logInUrl=[SYNUAPI generateLogInUrl:self.userSessionID];
-    
-    NSString *logInBody=[SYNUAPI generateLogInBody:userName pwd:pwd checkCode:checkCode];
-
-    [self.net post:logInUrl bodyStr:logInBody completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        NSString *str=[[NSString alloc]initWithData:responseObject encoding:[Helper gbkEncoding]];
-        NSLog(@"%@",str);
-        self.studentID=userName;
-        self.studentName= [self parseStudentNameFromData:responseObject];
-//        [self getAllCourses];
-//        [self getUnPassedCourses];
-//        [self getScoreStats];
-        [self getStudenInformation];
-    }];
-    
-}
-
-/**
- *  学生个人信息
- */
--(void)getStudenInformation{
-
-    NSString *url=[SYNUAPI generateStudentInformationUrl:self.userSessionID studentID:self.studentID studentName:self.studentName];
-    
-    [self.net get:url completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        NSString *str=[[NSString alloc]initWithData:responseObject encoding:[Helper gbkEncoding]];
-        NSLog(@"%@",str);
-        [self parseStudenInformationWithHtmlData:responseObject];
-    }];
-}
-
-/**
- *  未通过课程
- */
--(void)getUnPassedCourses{
-    NSString *url=[SYNUAPI generateStudentCoursesUrl:self.userSessionID studentID:self.studentID studentName:self.studentName];
-    [self.net get:url completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        [Course coursesFromHtmlData:responseObject];
-    }];
-}
-
-/**
- *  所有课程列表
- */
--(void)getAllCourses{
-    NSString *url= [SYNUAPI generateStudentCoursesUrl:self.userSessionID studentID:self.studentID studentName:self.studentName];
-    
-    [self.net post:url bodyStr:kAllCoursesBody completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        NSString *str=[[NSString alloc]initWithData:responseObject encoding:[Helper gbkEncoding]];
-        NSLog(@"%@",str);
-        [Course coursesFromHtmlData:responseObject];
-    }];
-}
-
--(void)getScoreStats{
-        NSString *url= [SYNUAPI generateStudentCoursesUrl:self.userSessionID studentID:self.studentID studentName:self.studentName];
-    [self.net post:url bodyStr:kScoreStatsBody completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-//        NSString *str=[[NSString alloc]initWithData:responseObject encoding:[Helper gbkEncoding]];
-//        NSLog(@"%@",str);
-        [[ScoreStats alloc]initWithHtmlData:responseObject];
-    }];
-
-}
-
-/**
- *  获取学生头像图片
- *
- *  @param completionHandler
- */
--(void)getAvatarImageWithCompletionHandler:(void (^)(UIImage *verifyImg))completionHandler{
-    [self.net get:[SYNUAPI generateStudentAvantarUrl:self.userSessionID studentID:self.studentID] completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        self.avatarImg=[UIImage imageWithData:responseObject];
-        completionHandler(self.avatarImg);
-    }];
-}
-
-#endif
 
 #pragma mark - HTML Parse
 -(void)parseStudenInformationWithHtmlData:(NSData*)data{

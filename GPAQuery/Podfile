@@ -18,7 +18,7 @@ pod 'FMDB'
 end
 
 target 'GPAQueryTests' do
-
+pod 'FMDB'
 end
 
 target 'GPAQueryUITests' do

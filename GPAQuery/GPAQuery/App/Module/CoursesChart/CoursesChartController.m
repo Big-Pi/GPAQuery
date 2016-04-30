@@ -10,6 +10,7 @@
 #import "Course.h"
 #import "Student+Definition.h"
 #import "GPAQuery-Swift.h"
+#import "DBManager.h"
 
 
 @interface CoursesChartController ()
@@ -31,7 +32,7 @@
     if(self.student.historyCourses && self.student.historyCourses.count>0){
         [self strokeBarChartWithCourses:self.student.historyGPACalcCourses];
     }else{
-        [self reloadData:self.student];
+        [self reloadData:self.student ignoreCache:NO];
     }
 }
 
@@ -49,8 +50,20 @@
 }
 
 #pragma mark - Private
--(void)reloadData:(Student*)student{
+-(void)reloadData:(Student*)student ignoreCache:(BOOL)ignoreCache{
     [SpinnerHud showInView:self.view];
+    //先从数据库缓存取出数据,
+    if(!ignoreCache){
+        NSArray *courses=[[DBManager sharedDBManager]queryCoursesForStudent:student];
+        if(courses.count>1){//如果有缓存数据就显示缓存
+            student.historyCourses=courses;
+            [SpinnerHud hide];
+            [self strokeBarChartWithCourses:self.student.historyGPACalcCourses];
+            [self.barChart animateWithYAxisDuration:1.4];
+            return;
+        }
+    }
+    //没有就从网络加载数据
     [self.netUtil getAllCourses:self.student completionHandler:^{
         [SpinnerHud hide];
         [self strokeBarChartWithCourses:self.student.historyGPACalcCourses];
@@ -64,7 +77,7 @@
                                                           image:nil
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
-                                                             [self reloadData:self.student];
+                                                             [self reloadData:self.student ignoreCache:YES];
                                                          }];
     //显示哪个 item
     REMenuItem *showCoursesItem ;

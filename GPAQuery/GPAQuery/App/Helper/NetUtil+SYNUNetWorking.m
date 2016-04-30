@@ -13,7 +13,7 @@
 #import "Helper.h"
 #import "ScoreStats.h"
 #import "Ono.h"
-
+#import "DBManager.h"
 
 @implementation NetUtil (SYNUNetWorking)
 
@@ -77,7 +77,11 @@
 //        NSString *str=[[NSString alloc]initWithData:responseObject encoding:[Helper gbkEncoding]];
 //        NSLog(@"%@",str);
         [student parseStudenInformationWithHtmlData:responseObject];
-        completionHandler();
+        [self getAvatarImage:student completionHandler:^(UIImage *avatarImg) {
+            [[DBManager sharedDBManager]deleteStudent:student];
+            [[DBManager sharedDBManager]insertStudent:student];
+            completionHandler();
+        }];
     }];
 }
 
@@ -87,7 +91,7 @@
 -(void)getUnPassedCourses:(Student*)student completionHandler:(void (^)())completionHandler{
     NSString *url=[SYNUAPI generateStudentCoursesUrl:student.userSessionID studentID:student.studentID studentName:student.studentName];
     [self get:url completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        student.unPassCourses=[Course coursesFromHtmlData:responseObject];
+        student.unPassCourses=[Course coursesFromHtmlData:responseObject studentID:student.studentID];
         completionHandler();
     }];
 }
@@ -101,7 +105,9 @@
     [self post:url bodyStr:kAllCoursesBody completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
 //        NSString *str=[[NSString alloc]initWithData:responseObject encoding:[Helper gbkEncoding]];
 //        NSLog(@"%@",str);
-        student.historyCourses= [Course coursesFromHtmlData:responseObject];
+        student.historyCourses= [Course coursesFromHtmlData:responseObject studentID:student.studentID];
+        [[DBManager sharedDBManager]deleteCoursesForStudent:student];
+        [[DBManager sharedDBManager]batchInsertCourses:student.historyCourses];
         completionHandler();
     }];
 }

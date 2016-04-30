@@ -25,7 +25,6 @@
     self=[super init];
     if(self){
         [self initPrivate];
-        [self configWithStudent:student];
     }
     return self;
 }
@@ -47,11 +46,7 @@
 }
 
 -(void)configWithStudent:(Student*)student{
-    
-    [[NetUtil sharedNetUtil]getAvatarImage:student completionHandler:^(UIImage *avatarImg) {
-        
-        self.avatarImageView.image=avatarImg;
-    }];
+    self.avatarImageView.image=student.avatarImg;
     self.nameLabel.text=student.studentName;
     self.class0Label.text=student.class0;
 }
